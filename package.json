@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "5.2.8",
+    "@msviderok/base-ui-solid": "1.0.0-beta.12",
     "@tailwindcss/vite": "4.3.3",
     "@tanstack/router-plugin": "1.168.20",
     "@tanstack/solid-router": "1.170.18",
@@ -18,10 +19,9 @@
     "@tanstack/solid-router-ssr-query": "1.167.1",
     "@tanstack/solid-start": "1.168.28",
     "class-variance-authority": "0.7.1",
-    "clsx": "2.1.1",
+    "cnfast": "0.0.8",
     "nitro": "npm:nitro-nightly@latest",
     "solid-js": "1.9.14",
-    "tailwind-merge": "3.6.0",
     "tailwindcss": "4.3.3",
     "tailwindcss-animate": "1.0.7"
   },
