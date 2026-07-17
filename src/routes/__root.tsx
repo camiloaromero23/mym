@@ -23,7 +23,7 @@ function RootComponent() {
         <HydrationScript />
         <HeadContent />
       </head>
-      <body>
+      <body class="isolate">
         <Suspense>
           <Outlet />
           {import.meta.env.DEV && typeof window !== "undefined" && (

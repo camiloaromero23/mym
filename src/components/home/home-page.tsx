@@ -1,4 +1,5 @@
-import { For, Show, createEffect, createSignal, onCleanup, onMount } from "solid-js";
+import { Popover } from "@/components/popover";
+import { For, createSignal } from "solid-js";
 
 import "./home.css";
 
@@ -123,100 +124,71 @@ function WhatsAppIcon() {
   );
 }
 
-function ArrowIcon() {
-  return <span aria-hidden="true">→</span>;
-}
-
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = createSignal(false);
-  let menuToggle: HTMLButtonElement | undefined;
-  let firstMenuLink: HTMLAnchorElement | undefined;
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-    menuToggle?.focus();
-  };
-
-  createEffect(() => {
-    if (isMenuOpen()) {
-      queueMicrotask(() => firstMenuLink?.focus());
-    }
-  });
-
-  onMount(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && isMenuOpen()) {
-        closeMenu();
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    onCleanup(() => document.removeEventListener("keydown", onKeyDown));
-  });
+  let navigationBar: HTMLDivElement | undefined;
 
   return (
-    <header class="mm-header">
-      <div class="mm-utility">
-        <div>
+    <header class="relative z-30">
+      <div class="flex items-center justify-between bg-mm-navy-ink px-[clamp(1.5rem,4.4vw,3.5rem)] py-[0.65rem] text-xs tracking-[0.04em] text-white/90 max-[960px]:justify-center max-[720px]:py-2 max-[720px]:text-[0.6875rem]">
+        <div class="flex items-center gap-[1.2rem] max-[720px]:justify-center max-[720px]:[&>i]:hidden max-[720px]:[&>span:last-child]:hidden">
           <span>Bogotá, Colombia</span>
-          <i aria-hidden="true" />
+          <i class="size-1 rounded-full bg-mm-gold" aria-hidden="true" />
           <span>Lun-Vie 8:00-18:00 · Sáb 9:00-13:00</span>
         </div>
-        <address>
+        <address class="flex items-center gap-[1.2rem] not-italic max-[960px]:hidden [&_a]:no-underline [&_a:hover]:text-white [&_a:hover]:underline [&_a:hover]:underline-offset-4">
           <a href="tel:+573173005145">+57 317 300 5145</a>
-          <i aria-hidden="true" />
+          <i class="size-1 rounded-full bg-mm-gold" aria-hidden="true" />
           <a href="tel:+573173005146">+57 317 300 5146</a>
-          <i aria-hidden="true" />
+          <i class="size-1 rounded-full bg-mm-gold" aria-hidden="true" />
           <a href="mailto:info@inmobiliariamm.com">info@inmobiliariamm.com</a>
         </address>
       </div>
 
-      <div class="mm-nav-wrap">
-        <a class="mm-brand" href="#inicio" aria-label="Inicio, Organización Inmobiliaria M&M LTDA">
-          <BrandLogo />
-        </a>
-        <nav class="mm-desktop-nav" aria-label="Navegación principal">
-          <For each={navigation}>{(item) => <a href={item.href}>{item.label}</a>}</For>
-          <a class="mm-nav-cta" href={whatsappUrl}>
-            Contáctanos
+      <Popover.Root onOpenChange={(open) => setIsMenuOpen(open)}>
+        <div ref={navigationBar} class="relative z-30 flex min-h-[6.25rem] items-center justify-between border-b border-mm-line bg-mm-bone px-[clamp(1.5rem,4.4vw,3.5rem)] py-4 max-[720px]:min-h-[5.25rem] max-[720px]:py-3">
+          <a class="block basis-[10.75rem] leading-none max-[720px]:basis-[8.5rem]" href="#inicio" aria-label="Inicio, Organización Inmobiliaria M&M LTDA">
+            <BrandLogo class="block h-auto max-w-full" />
           </a>
-        </nav>
-        <button
-          ref={menuToggle}
-          class="mm-menu-toggle"
-          type="button"
-          aria-controls="mobile-navigation"
-          aria-expanded={isMenuOpen()}
-          onClick={() => setIsMenuOpen((open) => !open)}
-        >
-          <span class="sr-only">{isMenuOpen() ? "Cerrar menú" : "Abrir menú"}</span>
-          <span aria-hidden="true">{isMenuOpen() ? "×" : "☰"}</span>
-        </button>
-      </div>
-
-      <Show when={isMenuOpen()}>
-        <div id="mobile-navigation" class="mm-mobile-menu">
-          <nav aria-label="Navegación móvil">
-            <For each={navigation}>
-              {(item, index) => (
-                <a ref={index() === 0 ? firstMenuLink : undefined} href={item.href} onClick={closeMenu}>
-                  {item.label}
-                </a>
-              )}
-            </For>
-            <a class="mm-whatsapp-link" href={whatsappUrl} onClick={closeMenu}>
-              <WhatsAppIcon />
-              Contáctanos por WhatsApp
+          <nav class="flex items-center gap-[clamp(1.15rem,2.8vw,2.25rem)] max-[720px]:hidden" aria-label="Navegación principal">
+            <For each={navigation}>{(item) => <a class="text-sm font-bold no-underline hover:text-mm-navy" href={item.href}>{item.label}</a>}</For>
+            <a class="rounded-full bg-mm-navy px-[1.35rem] py-3 text-[0.8125rem] font-bold text-white no-underline hover:bg-mm-navy-ink" href={whatsappUrl}>
+              Contáctanos
             </a>
           </nav>
-          <address>
-            <span>Bogotá, Colombia</span>
-            <a href="tel:+573173005145">+57 317 300 5145</a>
-            <a href="tel:+573173005146">+57 317 300 5146</a>
-            <a href="mailto:info@inmobiliariamm.com">info@inmobiliariamm.com</a>
-          </address>
+          <Popover.Trigger
+            class="hidden size-10 items-center justify-center rounded-lg border-0 bg-mm-navy text-xl text-white max-[720px]:inline-flex"
+            aria-label={isMenuOpen() ? "Cerrar menú" : "Abrir menú"}
+          >
+            <span class="sr-only">{isMenuOpen() ? "Cerrar menú" : "Abrir menú"}</span>
+            <span aria-hidden="true">{isMenuOpen() ? "×" : "☰"}</span>
+          </Popover.Trigger>
         </div>
-      </Show>
+        <Popover.Portal>
+          <Popover.Positioner anchor={() => navigationBar ?? null} positionMethod="fixed" side="bottom" align="start" class="z-20 w-screen max-[720px]:block min-[721px]:hidden">
+            <Popover.Popup id="mobile-navigation" class="border-b border-mm-line bg-mm-bone p-6 text-mm-ink shadow-[0_1rem_1.5rem_-1.5rem_rgb(15_26_42_/_60%)] transition-[opacity,transform] duration-150 ease-out data-[starting-style]:translate-y-[-0.25rem] data-[starting-style]:opacity-0 data-[ending-style]:translate-y-[-0.25rem] data-[ending-style]:opacity-0">
+              <nav class="flex flex-col" aria-label="Navegación móvil">
+                <For each={navigation}>
+                  {(item) => (
+                    <Popover.Close render={(props) => <a {...props} href={item.href} />} class="border-b border-mm-line py-3.5 text-[1.0625rem] font-bold no-underline">
+                      {item.label}
+                    </Popover.Close>
+                  )}
+                </For>
+                <Popover.Close render={(props) => <a {...props} href={whatsappUrl} />} class="mt-5 inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113_/_45%)] hover:bg-[#278e53] [&>svg]:size-5 [&>svg]:fill-current">
+                  <WhatsAppIcon />
+                  Contáctanos por WhatsApp
+                </Popover.Close>
+              </nav>
+              <address class="mx-[-1.5rem] mb-[-1.5rem] mt-6 flex flex-col gap-2.5 bg-mm-navy p-6 text-[0.8125rem] not-italic text-white/90 [&_a]:text-inherit [&_a]:no-underline">
+                <span>Bogotá, Colombia</span>
+                <a href="tel:+573173005146">+57 317 300 5146</a>
+                <a href="mailto:info@inmobiliariamym.com">info@inmobiliariamym.com</a>
+              </address>
+            </Popover.Popup>
+          </Popover.Positioner>
+        </Popover.Portal>
+      </Popover.Root>
     </header>
   );
 }
