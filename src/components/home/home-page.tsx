@@ -1,7 +1,6 @@
 import { Popover } from "@/components/popover";
 import { For, createSignal } from "solid-js";
 
-import "./home.css";
 
 const logoSource = "/inmobiliaria-mm-logo.jpg";
 const whatsappUrl = "https://wa.me/573173005146";
@@ -195,23 +194,23 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" class="mm-hero" aria-labelledby="home-title">
-      <div class="mm-hero-content">
-        <p class="mm-status"><span aria-hidden="true" />Estamos en línea por WhatsApp · Respuesta en minutos</p>
-        <h1 id="home-title">
-          Estamos renovando nuestra <span>experiencia digital</span>
+    <section id="inicio" class="relative bg-[radial-gradient(#1e3a5f_1px,transparent_1px)_0_0/2rem_2rem,linear-gradient(180deg,#eef4fb_0%,#fbfaf7_100%)] text-center before:pointer-events-none before:absolute before:inset-0 before:bg-mm-sky-soft before:opacity-94 before:content-['']" aria-labelledby="home-title">
+      <div class="relative mx-auto max-w-[59rem] px-6 py-[clamp(3.75rem,8vw,5.5rem)] max-[720px]:py-[3rem_3.5rem]">
+        <p class="mb-7 inline-flex items-center gap-2.5 rounded-full border border-mm-line bg-white px-4 py-2 text-xs font-bold tracking-[0.04em] text-mm-navy-ink max-[720px]:mb-5 max-[720px]:px-3 max-[720px]:py-[0.4375rem] max-[720px]:text-[0.625rem] max-[720px]:tracking-[0.01em]"><span class="size-1.5 rounded-full bg-mm-green shadow-[0_0_0_4px_rgb(63_184_113_/_18%)]" aria-hidden="true" />Estamos en línea por WhatsApp · Respuesta en minutos</p>
+        <h1 id="home-title" class="mx-auto mb-4 max-w-[54rem] text-[clamp(2.5rem,6vw,3.75rem)] leading-[1.05] font-bold tracking-[-0.045em] text-mm-navy-ink max-[720px]:text-[clamp(2.25rem,10vw,3rem)]">
+          Estamos renovando nuestra <span class="block font-mm-serif text-mm-navy italic font-normal tracking-[-0.035em]">experiencia digital</span>
         </h1>
-        <p class="mm-hero-copy">
+        <p class="mx-auto mb-9 max-w-[38rem] text-lg leading-[1.55] text-mm-muted max-[720px]:mb-6 max-[720px]:text-[0.9375rem]">
           Mientras finalizamos la actualización, accede a nuestros portales y servicios.
           Llevamos más de 20 años acompañando a Bogotá.
         </p>
-        <div class="mm-hero-actions">
-          <a class="mm-whatsapp-link" href={whatsappUrl}>
+        <div class="flex flex-wrap items-center justify-center gap-3 max-[720px]:items-stretch max-[720px]:flex-col">
+          <a class="inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113_/_45%)] hover:bg-[#278e53] max-[720px]:w-full [&>svg]:size-5 [&>svg]:fill-current" href={whatsappUrl}>
             <WhatsAppIcon />
             Contáctanos por WhatsApp
           </a>
-          <button class="mm-secondary-link mm-unavailable-action" type="button" disabled>
-            Ver inmuebles <span class="mm-coming-soon">Próximamente</span>
+          <button class="inline-flex items-center justify-center gap-2.5 rounded-xl border-[1.5px] border-mm-navy bg-transparent px-[calc(1.75rem-1.5px)] py-[calc(1rem-1.5px)] text-[0.9375rem] font-bold text-mm-navy opacity-72 disabled:cursor-not-allowed max-[720px]:w-full" type="button" disabled>
+            Ver inmuebles <span class="whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
           </button>
         </div>
       </div>
@@ -221,24 +220,24 @@ function Hero() {
 
 function AccessSection() {
   return (
-    <section id="inmuebles" class="mm-access" aria-labelledby="access-title">
-      <div class="mm-section-heading">
-        <p>Accesos directos</p>
-        <h2 id="access-title">Cuatro caminos hacia <strong>tu gestión</strong></h2>
+    <section id="inmuebles" class="bg-mm-bone px-[clamp(1.5rem,4.4vw,3.5rem)] pt-[clamp(4rem,8vw,5.5rem)] pb-16 max-[720px]:pb-10" aria-labelledby="access-title">
+      <div class="mx-auto mb-12 max-w-[45rem] text-center max-[720px]:mb-7">
+        <p class="mb-3 text-xs font-extrabold tracking-[0.24em] text-mm-navy uppercase">Accesos directos</p>
+        <h2 id="access-title" class="font-mm-serif text-[clamp(2rem,4vw,2.5rem)] leading-[1.1] font-normal tracking-[-0.03em] text-mm-navy-ink">Cuatro caminos hacia <strong class="font-bold">tu gestión</strong></h2>
       </div>
-      <div id="servicios" class="mm-access-grid">
+      <div id="servicios" class="mx-auto grid max-w-[67.5rem] grid-cols-2 gap-5 scroll-mt-6 max-[720px]:grid-cols-1">
         <For each={accessCards}>
           {(card) => (
-            <article class="mm-access-card">
-              <span class="mm-card-number">{card.number} / 04</span>
-              <div class="mm-card-title-row">
-                <span class="mm-card-icon"><AccessIcon name={card.icon} /></span>
-                <h3>{card.title}</h3>
+            <article class="relative flex min-h-[18.5rem] flex-col rounded-[1.25rem] border border-mm-line bg-white p-8 transition-[border-color,box-shadow,transform] duration-180 ease-out hover:-translate-y-1 hover:border-[rgb(30_58_95_/_30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79_/_50%)] max-[720px]:min-h-0 max-[720px]:rounded-[0.875rem] max-[720px]:p-5">
+              <span class="absolute right-7 top-6 font-mm-serif text-sm tracking-[0.04em] text-mm-muted max-[720px]:right-5 max-[720px]:top-4">{card.number} / 04</span>
+              <div class="mb-[1.125rem] flex items-center gap-[1.125rem] pr-14 max-[720px]:mb-3.5 max-[720px]:gap-3">
+                <span class="inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-mm-sky text-mm-navy max-[720px]:size-12 max-[720px]:rounded-[0.625rem] [&>svg]:size-8 [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] max-[720px]:[&>svg]:size-6"><AccessIcon name={card.icon} /></span>
+                <h3 class="text-[1.375rem] leading-[1.2] font-bold tracking-[-0.025em] text-mm-navy-ink max-[720px]:text-base">{card.title}</h3>
               </div>
-              <p>{card.description}</p>
-               <button class="mm-card-action mm-unavailable-action" type="button" disabled>
-                 {card.action} <span class="mm-coming-soon">Próximamente</span>
-               </button>
+              <p class="mb-6 text-[0.9375rem] leading-[1.6] text-mm-muted max-[720px]:mb-4 max-[720px]:text-[0.8125rem]">{card.description}</p>
+              <button class="mt-auto inline-flex self-start items-center justify-center gap-2 rounded-[0.625rem] border-0 bg-mm-navy px-[1.375rem] py-3 text-sm font-bold text-white opacity-72 disabled:cursor-not-allowed max-[720px]:self-stretch" type="button" disabled>
+                {card.action} <span class="whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
+              </button>
             </article>
           )}
         </For>
@@ -249,13 +248,13 @@ function AccessSection() {
 
 function BenefitsSection() {
   return (
-    <section class="mm-benefits" aria-labelledby="benefits-title">
+    <section class="grid grid-cols-3 bg-mm-navy-ink px-[clamp(1.5rem,4.4vw,3.5rem)] py-10 text-white max-[720px]:grid-cols-1 max-[720px]:py-4" aria-labelledby="benefits-title">
       <h2 id="benefits-title" class="sr-only">Nuestro compromiso</h2>
       <For each={benefits}>
         {(benefit) => (
-          <div class="mm-benefit">
-            <span>{benefit.value}</span>
-            <p><strong>{benefit.title}</strong>{benefit.description}</p>
+          <div class="flex items-center gap-4 px-[clamp(1.25rem,3vw,2rem)] py-5 not-last:border-r not-last:border-white/15 max-[720px]:px-0 max-[720px]:py-4 max-[720px]:not-last:border-r-0 max-[720px]:not-last:border-b">
+            <span class="font-mm-serif text-[clamp(2rem,3.5vw,2.5rem)] leading-none font-bold tracking-[-0.05em] text-mm-gold">{benefit.value}</span>
+            <p class="text-sm leading-[1.4] text-white/85"><strong class="mb-0.5 block text-[0.9375rem] text-white">{benefit.title}</strong>{benefit.description}</p>
           </div>
         )}
       </For>
@@ -265,45 +264,45 @@ function BenefitsSection() {
 
 function Footer() {
   return (
-    <footer id="contacto" class="mm-footer" aria-labelledby="footer-title">
+    <footer id="contacto" class="bg-mm-navy px-[clamp(1.5rem,4.4vw,3.5rem)] pt-[clamp(3rem,6vw,4rem)] pb-8 text-white" aria-labelledby="footer-title">
       <h2 id="footer-title" class="sr-only">Información de contacto de Inmobiliaria M&M</h2>
-      <div class="mm-footer-grid">
-        <div class="mm-footer-brand">
-          <div class="mm-footer-logo-plate"><BrandLogo /></div>
-          <p>Patrimonio que perdura, confianza que permanece.</p>
+      <div class="grid grid-cols-[1.4fr_repeat(3,1fr)] gap-[clamp(2rem,5vw,3rem)] border-b border-white/15 pb-10 max-[960px]:grid-cols-[1.4fr_1fr_1fr] max-[720px]:grid-cols-2 max-[380px]:grid-cols-1">
+        <div class="max-[720px]:col-span-full">
+          <div class="max-w-[17rem] rounded-[0.875rem] bg-mm-bone px-5 py-4"><BrandLogo class="block h-auto w-full" /></div>
+          <p class="mt-5 max-w-[18rem] font-mm-serif text-base leading-[1.5] text-white/85 italic">Patrimonio que perdura, confianza que permanece.</p>
         </div>
         <div>
-          <h3>Contacto</h3>
-          <address>
+          <h3 class="mb-5 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Contacto</h3>
+          <address class="flex flex-col gap-3 text-sm not-italic text-white/85 [&_a]:text-inherit [&_a]:no-underline [&_a:hover]:text-white [&_a:hover]:underline [&_a:hover]:underline-offset-4">
             <span>Bogotá, Colombia</span>
             <a href="tel:+573173005145">+57 317 300 5145</a>
             <a href="tel:+573173005146">+57 317 300 5146</a>
             <a href="mailto:info@inmobiliariamm.com">info@inmobiliariamm.com</a>
           </address>
         </div>
-        <nav aria-label="Servicios">
-          <h3>Servicios</h3>
+        <nav class="flex flex-col gap-3 text-sm text-white/85 [&_a]:text-inherit [&_a]:no-underline [&_a:hover]:text-white [&_a:hover]:underline [&_a:hover]:underline-offset-4" aria-label="Servicios">
+          <h3 class="mb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Servicios</h3>
            <a href="#contacto">Arriendo</a>
            <a href="#contacto">Venta</a>
            <a href="#contacto">Administración</a>
-           <span class="mm-unavailable-footer-link">Pagar canon <span>Próximamente</span></span>
+           <span class="text-white/60">Pagar canon <span class="text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span></span>
         </nav>
-        <nav aria-label="Compañía">
-           <h3>Compañía</h3>
+        <nav class="flex flex-col gap-3 text-sm text-white/85 max-[960px]:col-start-2 max-[720px]:col-auto max-[380px]:col-auto [&_a]:text-inherit [&_a]:no-underline [&_a:hover]:text-white [&_a:hover]:underline [&_a:hover]:underline-offset-4" aria-label="Compañía">
+           <h3 class="mb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Compañía</h3>
            <a href="#contacto">Nosotros</a>
-           <span class="mm-unavailable-footer-link">Inmuebles <span>Próximamente</span></span>
+           <span class="text-white/60">Inmuebles <span class="text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span></span>
            <a href="#contacto">Contacto</a>
            <a href="#contacto">Aviso legal</a>
         </nav>
       </div>
-      <div class="mm-footer-bottom">
+      <div class="flex items-center justify-between pt-6 text-xs text-white/60 max-[720px]:items-start max-[720px]:flex-col max-[720px]:gap-4">
         <small>© 2026 Organización Inmobiliaria M&M LTDA. Todos los derechos reservados.</small>
-        <nav class="mm-social-links" aria-label="Canales de contacto">
-          <button type="button" aria-label="Facebook, próximamente" disabled>f</button>
-          <button type="button" aria-label="Instagram, próximamente" disabled>◎</button>
-          <a href={whatsappUrl} aria-label="WhatsApp"><WhatsAppIcon /></a>
-          <button type="button" aria-label="Telegram, próximamente" disabled>↗</button>
-          <span class="mm-social-coming-soon">Próximamente</span>
+        <nav class="flex gap-2.5" aria-label="Canales de contacto">
+          <button class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 font-inherit text-base text-white/85 opacity-50 disabled:cursor-not-allowed" type="button" aria-label="Facebook, próximamente" disabled>f</button>
+          <button class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 font-inherit text-base text-white/85 opacity-50 disabled:cursor-not-allowed" type="button" aria-label="Instagram, próximamente" disabled>◎</button>
+          <a class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:size-4 [&>svg]:fill-current" href={whatsappUrl} aria-label="WhatsApp"><WhatsAppIcon /></a>
+          <button class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 font-inherit text-base text-white/85 opacity-50 disabled:cursor-not-allowed" type="button" aria-label="Telegram, próximamente" disabled>↗</button>
+          <span class="self-center whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
         </nav>
       </div>
     </footer>
@@ -312,8 +311,8 @@ function Footer() {
 
 export function HomePage() {
   return (
-    <div class="mm-home">
-      <a class="mm-skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+    <div class="overflow-clip bg-mm-bone text-mm-ink [font-feature-settings:'ss01','cv11'] [&_a]:text-inherit [&_a:focus-visible]:outline-3 [&_a:focus-visible]:outline-mm-gold [&_a:focus-visible]:outline-offset-4 [&_button:focus-visible]:outline-3 [&_button:focus-visible]:outline-mm-gold [&_button:focus-visible]:outline-offset-4">
+      <a class="fixed left-4 top-[-5rem] z-50 bg-white px-4 py-3 font-bold text-mm-navy-ink transition-[top] duration-160 ease-out focus:top-4" href="#contenido-principal">Saltar al contenido principal</a>
       <Header />
       <main id="contenido-principal" tabindex="-1">
         <Hero />
