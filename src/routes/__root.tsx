@@ -18,7 +18,7 @@ export const Route = createRootRouteWithContext()({
 
 function RootComponent() {
   return (
-    <html>
+    <html lang="es">
       <head>
         <HydrationScript />
         <HeadContent />
