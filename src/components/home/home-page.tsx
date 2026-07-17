@@ -1,8 +1,7 @@
 import { Popover } from "@/components/popover";
+import { BrandLogo } from "@/components/brand-logo";
 import { For, createSignal } from "solid-js";
 
-
-const logoSource = "/inmobiliaria-mm-logo.jpg";
 const whatsappUrl = "https://wa.me/573173005146";
 
 const navigation = [
@@ -65,18 +64,6 @@ const benefits = [
 ] as const;
 
 type IconName = (typeof accessCards)[number]["icon"];
-
-function BrandLogo(props: { class?: string }) {
-  return (
-    <img
-      class={props.class}
-      src={logoSource}
-      width="906"
-      height="324"
-      alt="Organización Inmobiliaria M&M LTDA"
-    />
-  );
-}
 
 function AccessIcon(props: { name: IconName }) {
   if (props.name === "house") {
