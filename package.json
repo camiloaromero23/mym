@@ -3,12 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
-    "generate-routes": "tsr generate",
-    "build": "vite build",
-    "start": "node .output/server/index.mjs",
-    "preview": "vite preview",
-    "test": "vitest run"
+    "dev": "bun --bun vite dev --port 3000",
+    "generate-routes": "bun --bun tsr generate",
+    "build": "bun --bun vite build",
+    "start": "bun --bun node .output/server/index.mjs",
+    "preview": "bun --bun vite preview"
   },
   "dependencies": {
     "@fontsource/inter": "^5.1.1",
@@ -27,14 +26,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@solidjs/testing-library": "^0.8.10",
     "@tanstack/devtools-vite": "latest",
     "@tanstack/router-cli": "^1.133.21",
-    "jsdom": "^28.1.0",
+    "@tanstack/solid-devtools": "^0.8.8",
     "typescript": "^6.0.2",
     "vite": "^8.0.0",
-    "vite-plugin-solid": "^2.11.12",
-    "vitest": "^4.1.5"
+    "vite-plugin-solid": "^2.11.12"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
