@@ -10,28 +10,28 @@
     "preview": "bun --bun vite preview"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.1.1",
-    "@tailwindcss/vite": "^4.1.18",
-    "@tanstack/router-plugin": "^1.133.21",
-    "@tanstack/solid-router": "latest",
-    "@tanstack/solid-router-devtools": "latest",
-    "@tanstack/solid-router-ssr-query": "latest",
-    "@tanstack/solid-start": "latest",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
+    "@fontsource/inter": "5.2.8",
+    "@tailwindcss/vite": "4.3.3",
+    "@tanstack/router-plugin": "1.168.20",
+    "@tanstack/solid-router": "1.170.18",
+    "@tanstack/solid-router-devtools": "1.167.0",
+    "@tanstack/solid-router-ssr-query": "1.167.1",
+    "@tanstack/solid-start": "1.168.28",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
     "nitro": "npm:nitro-nightly@latest",
-    "solid-js": "^1.9.12",
-    "tailwind-merge": "^3.0.2",
-    "tailwindcss": "^4.1.18",
-    "tailwindcss-animate": "^1.0.7"
+    "solid-js": "1.9.14",
+    "tailwind-merge": "3.6.0",
+    "tailwindcss": "4.3.3",
+    "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
-    "@tanstack/devtools-vite": "latest",
-    "@tanstack/router-cli": "^1.133.21",
-    "@tanstack/solid-devtools": "^0.8.8",
+    "@tanstack/devtools-vite": "0.8.1",
+    "@tanstack/router-cli": "1.167.19",
+    "@tanstack/solid-devtools": "0.8.8",
     "typescript": "7.0.2",
-    "vite": "^8.0.0",
-    "vite-plugin-solid": "^2.11.12"
+    "vite": "8.1.5",
+    "vite-plugin-solid": "2.11.12"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
