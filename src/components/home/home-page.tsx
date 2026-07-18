@@ -1,5 +1,6 @@
 import { Popover } from "@/components/popover";
 import { BrandLogo } from "@/components/brand-logo";
+import { Button } from "@/components/button";
 import { For, createSignal } from "solid-js";
 
 const whatsappUrl = "https://wa.me/573173005146";
@@ -196,9 +197,9 @@ function Hero() {
             <WhatsAppIcon />
             Contáctanos por WhatsApp
           </a>
-          <button class="inline-flex items-center justify-center gap-2.5 rounded-xl border-[1.5px] border-mm-navy bg-transparent px-[calc(1.75rem-1.5px)] py-[calc(1rem-1.5px)] text-[0.9375rem] font-bold text-mm-navy opacity-72 disabled:cursor-not-allowed max-[720px]:w-full" type="button" disabled>
+          <Button variant="outline" class="max-[720px]:w-full" type="button" disabled>
             Ver inmuebles <span class="whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
-          </button>
+          </Button>
         </div>
       </div>
     </section>
@@ -222,9 +223,9 @@ function AccessSection() {
                 <h3 class="text-[1.375rem] leading-[1.2] font-bold tracking-[-0.025em] text-mm-navy-ink max-[720px]:text-base">{card.title}</h3>
               </div>
               <p class="mb-6 text-[0.9375rem] leading-[1.6] text-mm-muted max-[720px]:mb-4 max-[720px]:text-[0.8125rem]">{card.description}</p>
-              <button class="mt-auto inline-flex self-start items-center justify-center gap-2 rounded-[0.625rem] border-0 bg-mm-navy px-[1.375rem] py-3 text-sm font-bold text-white opacity-72 disabled:cursor-not-allowed max-[720px]:self-stretch" type="button" disabled>
+              <Button variant="navy" class="mt-auto self-start max-[720px]:self-stretch" type="button" disabled>
                 {card.action} <span class="whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
-              </button>
+              </Button>
             </article>
           )}
         </For>
@@ -285,10 +286,10 @@ function Footer() {
       <div class="flex items-center justify-between pt-6 text-xs text-white/60 max-[720px]:items-start max-[720px]:flex-col max-[720px]:gap-4">
         <small>© 2026 Organización Inmobiliaria M&M LTDA. Todos los derechos reservados.</small>
         <nav class="flex gap-2.5" aria-label="Canales de contacto">
-          <button class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 font-inherit text-base text-white/85 opacity-50 disabled:cursor-not-allowed" type="button" aria-label="Facebook, próximamente" disabled>f</button>
-          <button class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 font-inherit text-base text-white/85 opacity-50 disabled:cursor-not-allowed" type="button" aria-label="Instagram, próximamente" disabled>◎</button>
+          <Button variant="social" type="button" aria-label="Facebook, próximamente" disabled>f</Button>
+          <Button variant="social" type="button" aria-label="Instagram, próximamente" disabled>◎</Button>
           <a class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:size-4 [&>svg]:fill-current" href={whatsappUrl} aria-label="WhatsApp"><WhatsAppIcon /></a>
-          <button class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 font-inherit text-base text-white/85 opacity-50 disabled:cursor-not-allowed" type="button" aria-label="Telegram, próximamente" disabled>↗</button>
+          <Button variant="social" type="button" aria-label="Telegram, próximamente" disabled>↗</Button>
           <span class="self-center whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
         </nav>
       </div>
