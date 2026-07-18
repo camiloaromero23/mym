@@ -153,21 +153,25 @@ function Header() {
         </div>
         <Popover.Portal>
           <Popover.Positioner anchor={() => navigationBar ?? null} positionMethod="fixed" side="bottom" align="start" class="z-20 w-screen max-[720px]:block min-[721px]:hidden">
-            <Popover.Popup id="mobile-navigation" class="border-b border-mm-line bg-mm-bone p-6 text-mm-ink shadow-[0_1rem_1.5rem_-1.5rem_rgb(15_26_42/60%)] transition-[opacity,transform] duration-150 ease-out data-starting-style:-translate-y-1 data-starting-style:opacity-0">
-              <nav class="flex flex-col" aria-label="Navegación móvil">
-                <For each={navigation}>
-                  {(item) => (
-                    <Popover.Close render={(props) => <a {...props} href={item.href} />} class="border-b border-mm-line py-3.5 text-[1.0625rem] font-bold no-underline">
-                      {item.label}
-                    </Popover.Close>
-                  )}
-                </For>
-                <Popover.Close render={(props) => <a {...props} href={whatsappUrl} />} class="mt-5 inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] [&>svg]:size-5 [&>svg]:fill-current">
-                  <WhatsAppIcon />
-                  Contáctanos por WhatsApp
-                </Popover.Close>
-              </nav>
-              <address class="-mx-6 -mb-6 mt-6 flex flex-col gap-2.5 bg-mm-navy p-6 text-[0.8125rem] not-italic text-white/90 [&_a]:no-underline">
+            <Popover.Popup id="mobile-navigation" class="flex flex-col gap-6 border-b border-mm-line bg-mm-bone text-mm-ink shadow-[0_1rem_1.5rem_-1.5rem_rgb(15_26_42/60%)] transition-[opacity,transform] duration-150 ease-out data-starting-style:-translate-y-1 data-starting-style:opacity-0">
+              <div class="p-6 pb-0">
+                <nav class="flex flex-col gap-5" aria-label="Navegación móvil">
+                  <div class="flex flex-col">
+                    <For each={navigation}>
+                      {(item) => (
+                        <Popover.Close render={(props) => <a {...props} href={item.href} />} class="border-b border-mm-line py-3.5 text-[1.0625rem] font-bold no-underline">
+                          {item.label}
+                        </Popover.Close>
+                      )}
+                    </For>
+                  </div>
+                  <Popover.Close render={(props) => <a {...props} href={whatsappUrl} />} class="inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] [&>svg]:size-5 [&>svg]:fill-current">
+                    <WhatsAppIcon />
+                    Contáctanos por WhatsApp
+                  </Popover.Close>
+                </nav>
+              </div>
+              <address class="flex flex-col gap-2.5 bg-mm-navy p-6 text-[0.8125rem] not-italic text-white/90 [&_a]:no-underline">
                 <span>Bogotá, Colombia</span>
                 <a href="tel:+573173005146">+57 317 300 5146</a>
                 <a href="mailto:info@inmobiliariamym.com">info@inmobiliariamym.com</a>
@@ -182,17 +186,21 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" class="relative bg-[radial-gradient(#1e3a5f_1px,transparent_1px)_0_0/2rem_2rem,linear-gradient(180deg,#eef4fb_0%,#fbfaf7_100%)] text-center before:pointer-events-none before:absolute before:inset-0 before:bg-mm-sky-soft before:opacity-94 before:content-['']" aria-labelledby="home-title">
-      <div class="relative mx-auto max-w-236 px-6 py-[clamp(3.75rem,8vw,5.5rem)] max-[720px]:py-[3rem_3.5rem]">
-        <p class="mb-7 inline-flex items-center gap-2.5 rounded-full border border-mm-line bg-white px-4 py-2 text-xs font-bold tracking-[0.04em] text-mm-navy-ink max-[720px]:mb-5 max-[720px]:px-3 max-[720px]:py-1.75 max-[720px]:text-[0.625rem] max-[720px]:tracking-[0.01em]"><span class="size-1.5 rounded-full bg-mm-green shadow-[0_0_0_4px_rgb(63_184_113/18%)]" aria-hidden="true" />Estamos en línea por WhatsApp · Respuesta en minutos</p>
-        <h1 id="home-title" class="mx-auto mb-4 max-w-216 text-[clamp(2.5rem,6vw,3.75rem)] leading-[1.05] font-bold tracking-[-0.045em] text-mm-navy-ink max-[720px]:text-[clamp(2.25rem,10vw,3rem)]">
-          Estamos renovando nuestra <span class="block font-mm-serif text-mm-navy italic font-normal tracking-[-0.035em]">experiencia digital</span>
-        </h1>
-        <p class="mx-auto mb-9 max-w-152 text-lg leading-[1.55] text-mm-muted max-[720px]:mb-6 max-[720px]:text-[0.9375rem]">
-          Mientras finalizamos la actualización, accede a nuestros portales y servicios.
-          Llevamos más de 20 años acompañando a Bogotá.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-3 max-[720px]:items-stretch max-[720px]:flex-col">
+    <section id="inicio" class="relative flex flex-col items-center bg-[radial-gradient(#1e3a5f_1px,transparent_1px)_0_0/2rem_2rem,linear-gradient(180deg,#eef4fb_0%,#fbfaf7_100%)] text-center before:pointer-events-none before:absolute before:inset-0 before:bg-mm-sky-soft before:opacity-94 before:content-['']" aria-labelledby="home-title">
+      <div class="relative flex w-full max-w-236 flex-col items-center px-6 py-[clamp(3.75rem,8vw,5.5rem)] max-[720px]:py-[3rem_3.5rem]">
+        <div class="flex flex-col items-center gap-7 max-[720px]:gap-5">
+          <p class="inline-flex items-center gap-2.5 rounded-full border border-mm-line bg-white px-4 py-2 text-xs font-bold tracking-[0.04em] text-mm-navy-ink max-[720px]:px-3 max-[720px]:py-1.75 max-[720px]:text-[0.625rem] max-[720px]:tracking-[0.01em]"><span class="size-1.5 rounded-full bg-mm-green shadow-[0_0_0_4px_rgb(63_184_113/18%)]" aria-hidden="true" />Estamos en línea por WhatsApp · Respuesta en minutos</p>
+          <div class="flex flex-col items-center gap-4">
+            <h1 id="home-title" class="max-w-216 text-[clamp(2.5rem,6vw,3.75rem)] leading-[1.05] font-bold tracking-[-0.045em] text-mm-navy-ink max-[720px]:text-[clamp(2.25rem,10vw,3rem)]">
+              Estamos renovando nuestra <span class="block font-mm-serif text-mm-navy italic font-normal tracking-[-0.035em]">experiencia digital</span>
+            </h1>
+            <p class="max-w-152 text-lg leading-[1.55] text-mm-muted max-[720px]:text-[0.9375rem]">
+              Mientras finalizamos la actualización, accede a nuestros portales y servicios.
+              Llevamos más de 20 años acompañando a Bogotá.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-9 max-[720px]:items-stretch max-[720px]:flex-col max-[720px]:pt-6">
           <a class="inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] max-[720px]:w-full [&>svg]:size-5 [&>svg]:fill-current" href={whatsappUrl}>
             <WhatsAppIcon />
             Contáctanos por WhatsApp
@@ -208,22 +216,24 @@ function Hero() {
 
 function AccessSection() {
   return (
-    <section id="inmuebles" class="bg-mm-bone px-[clamp(1.5rem,4.4vw,3.5rem)] pt-[clamp(4rem,8vw,5.5rem)] pb-16 max-[720px]:pb-10" aria-labelledby="access-title">
-      <div class="mx-auto mb-12 max-w-180 text-center max-[720px]:mb-7">
-        <p class="mb-3 text-xs font-extrabold tracking-[0.24em] text-mm-navy uppercase">Accesos directos</p>
+    <section id="inmuebles" class="flex flex-col items-center gap-12 bg-mm-bone px-[clamp(1.5rem,4.4vw,3.5rem)] pt-[clamp(4rem,8vw,5.5rem)] pb-16 max-[720px]:gap-7 max-[720px]:pb-10" aria-labelledby="access-title">
+      <div class="flex w-full max-w-180 flex-col items-center gap-3 text-center">
+        <p class="text-xs font-extrabold tracking-[0.24em] text-mm-navy uppercase">Accesos directos</p>
         <h2 id="access-title" class="font-mm-serif text-[clamp(2rem,4vw,2.5rem)] leading-[1.1] font-normal tracking-[-0.03em] text-mm-navy-ink">Cuatro caminos hacia <strong class="font-bold">tu gestión</strong></h2>
       </div>
-      <div id="servicios" class="mx-auto grid max-w-270 grid-cols-2 gap-5 scroll-mt-6 max-[720px]:grid-cols-1">
+      <div id="servicios" class="grid w-full max-w-270 grid-cols-2 gap-5 scroll-mt-6 max-[720px]:grid-cols-1">
         <For each={accessCards}>
           {(card) => (
             <article class="relative flex min-h-74 flex-col rounded-[1.25rem] border border-mm-line bg-white p-8 transition-[border-color,box-shadow,transform] duration-180 ease-out hover:-translate-y-1 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] max-[720px]:min-h-0 max-[720px]:rounded-[0.875rem] max-[720px]:p-5">
               <span class="absolute right-7 top-6 font-mm-serif text-sm tracking-[0.04em] text-mm-muted max-[720px]:right-5 max-[720px]:top-4">{card.number} / 04</span>
-              <div class="mb-4.5 flex items-center gap-4.5 pr-14 max-[720px]:mb-3.5 max-[720px]:gap-3">
-                <span class="inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-mm-sky text-mm-navy max-[720px]:size-12 max-[720px]:rounded-[0.625rem] [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] max-[720px]:[&>svg]:size-6"><AccessIcon name={card.icon} /></span>
-                <h3 class="text-[1.375rem] leading-[1.2] font-bold tracking-tight text-mm-navy-ink max-[720px]:text-base">{card.title}</h3>
+              <div class="flex flex-1 flex-col">
+                <div class="flex items-center gap-4.5 pr-14 max-[720px]:gap-3">
+                  <span class="inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-mm-sky text-mm-navy max-[720px]:size-12 max-[720px]:rounded-[0.625rem] [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] max-[720px]:[&>svg]:size-6"><AccessIcon name={card.icon} /></span>
+                  <h3 class="text-[1.375rem] leading-[1.2] font-bold tracking-tight text-mm-navy-ink max-[720px]:text-base">{card.title}</h3>
+                </div>
+                <p class="pt-4.5 text-[0.9375rem] leading-[1.6] text-mm-muted max-[720px]:pt-3.5 max-[720px]:text-[0.8125rem]">{card.description}</p>
               </div>
-              <p class="mb-6 text-[0.9375rem] leading-[1.6] text-mm-muted max-[720px]:mb-4 max-[720px]:text-[0.8125rem]">{card.description}</p>
-              <Button variant="navy" class="mt-auto self-start max-[720px]:self-stretch" type="button" disabled>
+              <Button variant="navy" class="self-start max-[720px]:self-stretch" type="button" disabled>
                 {card.action} <span class="whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
               </Button>
             </article>
@@ -244,7 +254,7 @@ function BenefitsSection() {
             <span
               class="font-mm-serif text-[clamp(2rem,3.5vw,2.5rem)] leading-none font-bold tracking-tighter text-mm-gold"
             >{benefit.value}</span>
-            <p class="text-sm leading-[1.4] text-white/85"><strong class="mb-0.5 block text-[0.9375rem] text-white">{benefit.title}</strong>{benefit.description}</p>
+            <p class="flex flex-col gap-0.5 text-sm leading-[1.4] text-white/85"><strong class="text-[0.9375rem] text-white">{benefit.title}</strong><span>{benefit.description}</span></p>
           </div>
         )}
       </For>
@@ -257,12 +267,12 @@ function Footer() {
     <footer id="contacto" class="bg-mm-navy px-[clamp(1.5rem,4.4vw,3.5rem)] pt-[clamp(3rem,6vw,4rem)] pb-8 text-white" aria-labelledby="footer-title">
       <h2 id="footer-title" class="sr-only">Información de contacto de Inmobiliaria M&M</h2>
       <div class="grid grid-cols-[1.4fr_repeat(3,1fr)] gap-[clamp(2rem,5vw,3rem)] border-b border-white/15 pb-10 max-[960px]:grid-cols-[1.4fr_1fr_1fr] max-[720px]:grid-cols-2 max-[380px]:grid-cols-1">
-        <div class="max-[720px]:col-span-full">
+        <div class="flex flex-col gap-5 max-[720px]:col-span-full">
           <div class="max-w-68 rounded-[0.875rem] bg-mm-bone px-5 py-4"><BrandLogo class="block h-auto w-full" /></div>
-          <p class="mt-5 max-w-[18rem] font-mm-serif text-base leading-normal text-white/85 italic">Patrimonio que perdura, confianza que permanece.</p>
+          <p class="max-w-[18rem] font-mm-serif text-base leading-normal text-white/85 italic">Patrimonio que perdura, confianza que permanece.</p>
         </div>
-        <div>
-          <h3 class="mb-5 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Contacto</h3>
+        <div class="flex flex-col gap-5">
+          <h3 class="text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Contacto</h3>
           <address class="flex flex-col gap-3 text-sm not-italic text-white/85 [&_a]:no-underline [&_a:hover]:underline-offset-4">
             <span>Bogotá, Colombia</span>
             <a href="tel:+573173005145">+57 317 300 5145</a>
@@ -271,14 +281,14 @@ function Footer() {
           </address>
         </div>
         <nav class="flex flex-col gap-3 text-sm text-white/85 [&_a]:no-underline [&_a:hover]:underline-offset-4" aria-label="Servicios">
-          <h3 class="mb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Servicios</h3>
+          <h3 class="pb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Servicios</h3>
            <a href="#contacto">Arriendo</a>
            <a href="#contacto">Venta</a>
            <a href="#contacto">Administración</a>
            <span class="text-white/60">Pagar canon <span class="text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span></span>
         </nav>
         <nav class="flex flex-col gap-3 text-sm text-white/85 max-[960px]:col-start-2 max-[720px]:col-auto max-[380px]:col-auto [&_a]:no-underline [&_a:hover]:underline-offset-4" aria-label="Compañía">
-           <h3 class="mb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Compañía</h3>
+           <h3 class="pb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Compañía</h3>
            <a href="#contacto">Nosotros</a>
            <span class="text-white/60">Inmuebles <span class="text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span></span>
            <a href="#contacto">Contacto</a>
