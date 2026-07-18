@@ -3,11 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "bun --bun vite build",
+    "deadcode": "knip",
     "dev": "bun --bun vite dev --port 3000",
     "generate-routes": "bun --bun tsr generate",
-    "build": "bun --bun vite build",
-    "start": "bun --bun node .output/server/index.mjs",
-    "preview": "bun --bun vite preview"
+    "lint": "oxlint .",
+    "nano-staged": "nano-staged",
+    "postinstall": "husky",
+    "preview": "bun --bun vite preview",
+    "start": "bun --bun node .output/server/index.mjs"
   },
   "dependencies": {
     "@corvu/drawer": "^0.2.4",
@@ -30,9 +34,24 @@
     "@tanstack/devtools-vite": "0.8.1",
     "@tanstack/router-cli": "1.167.19",
     "@tanstack/solid-devtools": "0.8.8",
+    "husky": "9.1.7",
+    "knip": "6.26.0",
+    "nano-staged": "1.0.2",
+    "oxfmt": "0.59.0",
+    "oxlint": "1.74.0",
+    "oxlint-tsgolint": "0.24.0",
     "typescript": "7.0.2",
     "vite": "8.1.5",
     "vite-plugin-solid": "2.11.12"
+  },
+  "nano-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "oxfmt --write",
+      "oxlint --fix"
+    ],
+    "*.json": [
+      "oxfmt --write"
+    ]
   },
   "pnpm": {
     "onlyBuiltDependencies": [
