@@ -11,7 +11,12 @@ export default defineConfig({
     devtools(),
     nitro(),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        filter: ({ path }) => path === "/",
+      },
+    }),
     solidPlugin({ ssr: true }),
   ],
 });
