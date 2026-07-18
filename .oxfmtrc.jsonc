@@ -29,8 +29,8 @@
     ],
   },
   "sortTailwindcss": {
-    "stylesheet": "./src/app/globals.css",
-    "functions": ["clsx", "cn", "cva"],
+    "stylesheet": "./src/styles.css",
+    "functions": ["cn", "cva"],
     "preserveWhitespace": true,
   },
   "semi": true,
@@ -39,5 +39,3 @@
   "tabWidth": 2,
   "trailingComma": "all",
 }
-
-

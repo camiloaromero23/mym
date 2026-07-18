@@ -12,8 +12,5 @@
   "routerOnly": false,
   "version": 1,
   "framework": "solid",
-  "chosenAddOns": [
-    "nitro",
-    "solid-ui"
-  ]
+  "chosenAddOns": ["nitro", "solid-ui"]
 }

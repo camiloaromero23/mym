@@ -6,6 +6,8 @@
     "build": "bun --bun vite build",
     "deadcode": "knip",
     "dev": "bun --bun vite dev --port 3000",
+    "format": "oxfmt --ignore-path .oxfmtignore --check .",
+    "format:fix": "oxfmt --ignore-path .oxfmtignore .",
     "generate-routes": "bun --bun tsr generate",
     "lint": "oxlint .",
     "nano-staged": "nano-staged",
