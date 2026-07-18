@@ -117,13 +117,13 @@ function Header() {
 
   return (
     <header class="relative z-30">
-      <div class="flex items-center justify-between bg-mm-navy-ink px-[clamp(1.5rem,4.4vw,3.5rem)] py-[0.65rem] text-xs tracking-[0.04em] text-white/90 max-[960px]:justify-center max-[720px]:py-2 max-[720px]:text-[0.6875rem]">
-        <div class="flex items-center gap-[1.2rem] max-[720px]:justify-center max-[720px]:[&>i]:hidden max-[720px]:[&>span:last-child]:hidden">
+      <div class="flex items-center justify-center bg-mm-navy-ink px-[clamp(1.5rem,4.4vw,3.5rem)] py-2 text-[0.6875rem] tracking-[0.04em] text-white/90 md:py-[0.65rem] md:text-xs lg:justify-between">
+        <div class="flex items-center justify-center gap-[1.2rem] [&>i]:hidden [&>span:last-child]:hidden md:[&>i]:block md:[&>span:last-child]:inline">
           <span>Bogotá, Colombia</span>
           <i class="size-1 rounded-full bg-mm-gold" aria-hidden="true" />
           <span>Lun-Vie 8:00-18:00 · Sáb 9:00-13:00</span>
         </div>
-        <address class="flex items-center gap-[1.2rem] not-italic max-[960px]:hidden [&_a]:no-underline [&_a:hover]:text-white [&_a:hover]:underline-offset-4">
+        <address class="hidden items-center gap-[1.2rem] not-italic lg:flex [&_a]:no-underline [&_a:hover]:text-white [&_a:hover]:underline-offset-4">
           <a href="tel:+573173005145">+57 317 300 5145</a>
           <i class="size-1 rounded-full bg-mm-gold" aria-hidden="true" />
           <a href="tel:+573173005146">+57 317 300 5146</a>
@@ -133,18 +133,18 @@ function Header() {
       </div>
 
       <Popover.Root onOpenChange={(open) => setIsMenuOpen(open)}>
-        <div ref={navigationBar} class="relative z-30 flex min-h-25 items-center justify-between border-b border-mm-line bg-mm-bone px-[clamp(1.5rem,4.4vw,3.5rem)] py-4 max-[720px]:min-h-21 max-[720px]:py-3">
-          <a class="block basis-43 leading-none max-[720px]:basis-34" href="#inicio" aria-label="Inicio, Organización Inmobiliaria M&M LTDA">
+        <div ref={navigationBar} class="relative z-30 flex min-h-21 items-center justify-between border-b border-mm-line bg-mm-bone px-[clamp(1.5rem,4.4vw,3.5rem)] py-3 md:min-h-25 md:py-4">
+          <a class="block basis-34 leading-none md:basis-43" href="#inicio" aria-label="Inicio, Organización Inmobiliaria M&M LTDA">
             <BrandLogo class="block h-auto max-w-full" />
           </a>
-          <nav class="flex items-center gap-[clamp(1.15rem,2.8vw,2.25rem)] max-[720px]:hidden" aria-label="Navegación principal">
+          <nav class="hidden items-center gap-[clamp(1.15rem,2.8vw,2.25rem)] md:flex" aria-label="Navegación principal">
             <For each={navigation}>{(item) => <a class="text-sm font-bold no-underline hover:text-mm-navy" href={item.href}>{item.label}</a>}</For>
             <a class="rounded-full bg-mm-navy px-[1.35rem] py-3 text-[0.8125rem] font-bold text-white no-underline hover:bg-mm-navy-ink" href={whatsappUrl}>
               Contáctanos
             </a>
           </nav>
           <Popover.Trigger
-            class="hidden size-10 items-center justify-center rounded-lg border-0 bg-mm-navy text-xl text-white max-[720px]:inline-flex"
+            class="inline-flex size-10 items-center justify-center rounded-lg border-0 bg-mm-navy text-xl text-white md:hidden"
             aria-label={isMenuOpen() ? "Cerrar menú" : "Abrir menú"}
           >
             <span class="sr-only">{isMenuOpen() ? "Cerrar menú" : "Abrir menú"}</span>
@@ -152,7 +152,7 @@ function Header() {
           </Popover.Trigger>
         </div>
         <Popover.Portal>
-          <Popover.Positioner anchor={() => navigationBar ?? null} positionMethod="fixed" side="bottom" align="start" class="z-20 w-screen max-[720px]:block min-[721px]:hidden">
+          <Popover.Positioner anchor={() => navigationBar ?? null} positionMethod="fixed" side="bottom" align="start" class="z-20 block w-screen md:hidden">
             <Popover.Popup id="mobile-navigation" class="flex flex-col gap-6 border-b border-mm-line bg-mm-bone text-mm-ink shadow-[0_1rem_1.5rem_-1.5rem_rgb(15_26_42/60%)] transition-[opacity,transform] duration-150 ease-out data-starting-style:-translate-y-1 data-starting-style:opacity-0">
               <div class="p-6 pb-0">
                 <nav class="flex flex-col gap-5" aria-label="Navegación móvil">
@@ -187,25 +187,25 @@ function Header() {
 function Hero() {
   return (
     <section id="inicio" class="relative flex flex-col items-center bg-[radial-gradient(#1e3a5f_1px,transparent_1px)_0_0/2rem_2rem,linear-gradient(180deg,#eef4fb_0%,#fbfaf7_100%)] text-center before:pointer-events-none before:absolute before:inset-0 before:bg-mm-sky-soft before:opacity-94 before:content-['']" aria-labelledby="home-title">
-      <div class="relative flex w-full max-w-236 flex-col items-center px-6 py-[clamp(3.75rem,8vw,5.5rem)] max-[720px]:py-[3rem_3.5rem]">
-        <div class="flex flex-col items-center gap-7 max-[720px]:gap-5">
-          <p class="inline-flex items-center gap-2.5 rounded-full border border-mm-line bg-white px-4 py-2 text-xs font-bold tracking-[0.04em] text-mm-navy-ink max-[720px]:px-3 max-[720px]:py-1.75 max-[720px]:text-[0.625rem] max-[720px]:tracking-[0.01em]"><span class="size-1.5 rounded-full bg-mm-green shadow-[0_0_0_4px_rgb(63_184_113/18%)]" aria-hidden="true" />Estamos en línea por WhatsApp · Respuesta en minutos</p>
+      <div class="relative flex w-full max-w-236 flex-col items-center px-6 py-[3rem_3.5rem] md:py-[clamp(3.75rem,8vw,5.5rem)]">
+        <div class="flex flex-col items-center gap-5 md:gap-7">
+          <p class="inline-flex items-center gap-2.5 rounded-full border border-mm-line bg-white px-3 py-1.75 text-[0.625rem] font-bold tracking-[0.01em] text-mm-navy-ink md:px-4 md:py-2 md:text-xs md:tracking-[0.04em]"><span class="size-1.5 rounded-full bg-mm-green shadow-[0_0_0_4px_rgb(63_184_113/18%)]" aria-hidden="true" />Estamos en línea por WhatsApp · Respuesta en minutos</p>
           <div class="flex flex-col items-center gap-4">
-            <h1 id="home-title" class="max-w-216 text-[clamp(2.5rem,6vw,3.75rem)] leading-[1.05] font-bold tracking-[-0.045em] text-mm-navy-ink max-[720px]:text-[clamp(2.25rem,10vw,3rem)]">
+            <h1 id="home-title" class="max-w-216 text-[clamp(2.25rem,10vw,3rem)] leading-[1.05] font-bold tracking-[-0.045em] text-mm-navy-ink md:text-[clamp(2.5rem,6vw,3.75rem)]">
               Estamos renovando nuestra <span class="block font-mm-serif text-mm-navy italic font-normal tracking-[-0.035em]">experiencia digital</span>
             </h1>
-            <p class="max-w-152 text-lg leading-[1.55] text-mm-muted max-[720px]:text-[0.9375rem]">
+            <p class="max-w-152 text-[0.9375rem] leading-[1.55] text-mm-muted md:text-lg">
               Mientras finalizamos la actualización, accede a nuestros portales y servicios.
               Llevamos más de 20 años acompañando a Bogotá.
             </p>
           </div>
         </div>
-        <div class="flex flex-wrap items-center justify-center gap-3 pt-9 max-[720px]:items-stretch max-[720px]:flex-col max-[720px]:pt-6">
-          <a class="inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] max-[720px]:w-full [&>svg]:size-5 [&>svg]:fill-current" href={whatsappUrl}>
+        <div class="flex flex-col items-stretch justify-center gap-3 pt-6 md:flex-row md:flex-wrap md:items-center md:pt-9">
+          <a class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] md:w-auto [&>svg]:size-5 [&>svg]:fill-current" href={whatsappUrl}>
             <WhatsAppIcon />
             Contáctanos por WhatsApp
           </a>
-          <Button variant="outline" class="max-[720px]:w-full" type="button" disabled>
+          <Button variant="outline" class="w-full md:w-auto" type="button" disabled>
             Ver inmuebles <span class="whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
           </Button>
         </div>
@@ -216,24 +216,24 @@ function Hero() {
 
 function AccessSection() {
   return (
-    <section id="inmuebles" class="flex flex-col items-center gap-12 bg-mm-bone px-[clamp(1.5rem,4.4vw,3.5rem)] pt-[clamp(4rem,8vw,5.5rem)] pb-16 max-[720px]:gap-7 max-[720px]:pb-10" aria-labelledby="access-title">
+    <section id="inmuebles" class="flex flex-col items-center gap-7 bg-mm-bone px-[clamp(1.5rem,4.4vw,3.5rem)] pt-[clamp(4rem,8vw,5.5rem)] pb-10 md:gap-12 md:pb-16" aria-labelledby="access-title">
       <div class="flex w-full max-w-180 flex-col items-center gap-3 text-center">
         <p class="text-xs font-extrabold tracking-[0.24em] text-mm-navy uppercase">Accesos directos</p>
         <h2 id="access-title" class="font-mm-serif text-[clamp(2rem,4vw,2.5rem)] leading-[1.1] font-normal tracking-[-0.03em] text-mm-navy-ink">Cuatro caminos hacia <strong class="font-bold">tu gestión</strong></h2>
       </div>
-      <div id="servicios" class="grid w-full max-w-270 grid-cols-2 gap-5 scroll-mt-6 max-[720px]:grid-cols-1">
+      <div id="servicios" class="grid w-full max-w-270 grid-cols-1 gap-5 scroll-mt-6 md:grid-cols-2">
         <For each={accessCards}>
           {(card) => (
-            <article class="relative flex min-h-74 flex-col rounded-[1.25rem] border border-mm-line bg-white p-8 transition-[border-color,box-shadow,transform] duration-180 ease-out hover:-translate-y-1 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] max-[720px]:min-h-0 max-[720px]:rounded-[0.875rem] max-[720px]:p-5">
-              <span class="absolute right-7 top-6 font-mm-serif text-sm tracking-[0.04em] text-mm-muted max-[720px]:right-5 max-[720px]:top-4">{card.number} / 04</span>
+            <article class="relative flex min-h-0 flex-col rounded-[0.875rem] border border-mm-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-180 ease-out hover:-translate-y-1 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] md:min-h-74 md:rounded-[1.25rem] md:p-8">
+              <span class="absolute right-5 top-4 font-mm-serif text-sm tracking-[0.04em] text-mm-muted md:right-7 md:top-6">{card.number} / 04</span>
               <div class="flex flex-1 flex-col">
-                <div class="flex items-center gap-4.5 pr-14 max-[720px]:gap-3">
-                  <span class="inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-mm-sky text-mm-navy max-[720px]:size-12 max-[720px]:rounded-[0.625rem] [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] max-[720px]:[&>svg]:size-6"><AccessIcon name={card.icon} /></span>
-                  <h3 class="text-[1.375rem] leading-[1.2] font-bold tracking-tight text-mm-navy-ink max-[720px]:text-base">{card.title}</h3>
+                <div class="flex items-center gap-3 pr-14 md:gap-4.5">
+                  <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-[0.625rem] bg-mm-sky text-mm-navy md:size-16 md:rounded-2xl [&>svg]:size-6 [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] md:[&>svg]:size-auto"><AccessIcon name={card.icon} /></span>
+                  <h3 class="text-base leading-[1.2] font-bold tracking-tight text-mm-navy-ink md:text-[1.375rem]">{card.title}</h3>
                 </div>
-                <p class="pt-4.5 text-[0.9375rem] leading-[1.6] text-mm-muted max-[720px]:pt-3.5 max-[720px]:text-[0.8125rem]">{card.description}</p>
+                <p class="pt-3.5 text-[0.8125rem] leading-[1.6] text-mm-muted md:pt-4.5 md:text-[0.9375rem]">{card.description}</p>
               </div>
-              <Button variant="navy" class="self-start max-[720px]:self-stretch" type="button" disabled>
+              <Button variant="navy" class="self-stretch md:self-start" type="button" disabled>
                 {card.action} <span class="whitespace-nowrap text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span>
               </Button>
             </article>
@@ -246,11 +246,11 @@ function AccessSection() {
 
 function BenefitsSection() {
   return (
-    <section class="grid grid-cols-3 bg-mm-navy-ink px-[clamp(1.5rem,4.4vw,3.5rem)] py-10 text-white max-[720px]:grid-cols-1 max-[720px]:py-4" aria-labelledby="benefits-title">
+    <section class="grid grid-cols-1 bg-mm-navy-ink px-[clamp(1.5rem,4.4vw,3.5rem)] py-4 text-white md:grid-cols-3 md:py-10" aria-labelledby="benefits-title">
       <h2 id="benefits-title" class="sr-only">Nuestro compromiso</h2>
       <For each={benefits}>
         {(benefit) => (
-          <div class="flex items-center gap-4 px-[clamp(1.25rem,3vw,2rem)] py-5 not-last:border-r not-last:border-white/15 max-[720px]:px-0 max-[720px]:py-4 max-[720px]:not-last:border-r-0 max-[720px]:not-last:border-b">
+          <div class="flex items-center gap-4 px-0 py-4 not-last:border-b not-last:border-white/15 md:px-[clamp(1.25rem,3vw,2rem)] md:py-5 md:not-last:border-r md:not-last:border-b-0">
             <span
               class="font-mm-serif text-[clamp(2rem,3.5vw,2.5rem)] leading-none font-bold tracking-tighter text-mm-gold"
             >{benefit.value}</span>
@@ -266,8 +266,8 @@ function Footer() {
   return (
     <footer id="contacto" class="bg-mm-navy px-[clamp(1.5rem,4.4vw,3.5rem)] pt-[clamp(3rem,6vw,4rem)] pb-8 text-white" aria-labelledby="footer-title">
       <h2 id="footer-title" class="sr-only">Información de contacto de Inmobiliaria M&M</h2>
-      <div class="grid grid-cols-[1.4fr_repeat(3,1fr)] gap-[clamp(2rem,5vw,3rem)] border-b border-white/15 pb-10 max-[960px]:grid-cols-[1.4fr_1fr_1fr] max-[720px]:grid-cols-2 max-[380px]:grid-cols-1">
-        <div class="flex flex-col gap-5 max-[720px]:col-span-full">
+      <div class="grid grid-cols-1 gap-[clamp(2rem,5vw,3rem)] border-b border-white/15 pb-10 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div class="flex flex-col gap-5 md:col-span-full lg:col-span-1">
           <div class="max-w-68 rounded-[0.875rem] bg-mm-bone px-5 py-4"><BrandLogo class="block h-auto w-full" /></div>
           <p class="max-w-[18rem] font-mm-serif text-base leading-normal text-white/85 italic">Patrimonio que perdura, confianza que permanece.</p>
         </div>
@@ -287,7 +287,7 @@ function Footer() {
            <a href="#contacto">Administración</a>
            <span class="text-white/60">Pagar canon <span class="text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span></span>
         </nav>
-        <nav class="flex flex-col gap-3 text-sm text-white/85 max-[960px]:col-start-2 max-[720px]:col-auto max-[380px]:col-auto [&_a]:no-underline [&_a:hover]:underline-offset-4" aria-label="Compañía">
+        <nav class="flex flex-col gap-3 text-sm text-white/85 md:col-start-2 lg:col-auto [&_a]:no-underline [&_a:hover]:underline-offset-4" aria-label="Compañía">
            <h3 class="pb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">Compañía</h3>
            <a href="#contacto">Nosotros</a>
            <span class="text-white/60">Inmuebles <span class="text-[0.625rem] tracking-[0.04em] uppercase">Próximamente</span></span>
@@ -295,7 +295,7 @@ function Footer() {
            <a href="#contacto">Aviso legal</a>
         </nav>
       </div>
-      <div class="flex items-center justify-between pt-6 text-xs text-white/60 max-[720px]:items-start max-[720px]:flex-col max-[720px]:gap-4">
+      <div class="flex flex-col items-start justify-between gap-4 pt-6 text-xs text-white/60 md:flex-row md:items-center">
         <small>© 2026 Organización Inmobiliaria M&M LTDA. Todos los derechos reservados.</small>
         <nav class="flex gap-2.5" aria-label="Canales de contacto">
           <Button variant="social" type="button" aria-label="Facebook, próximamente" disabled>f</Button>
