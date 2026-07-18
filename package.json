@@ -13,7 +13,8 @@
     "nano-staged": "nano-staged",
     "postinstall": "husky",
     "preview": "bun --bun vite preview",
-    "start": "bun --bun node .output/server/index.mjs"
+    "start": "bun --bun node .output/server/index.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@corvu/drawer": "^0.2.4",
