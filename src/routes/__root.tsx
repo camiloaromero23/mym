@@ -11,6 +11,7 @@ import styleCss from "../styles.css?url";
 
 export const Route = createRootRouteWithContext()({
   head: () => ({
+    meta: [{ name: "viewport", content: "width=device-width, initial-scale=1" }],
     links: [{ rel: "stylesheet", href: styleCss }],
   }),
   shellComponent: RootComponent,
