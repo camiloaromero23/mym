@@ -1,9 +1,17 @@
 import { Link } from "@tanstack/solid-router";
+import { For } from "solid-js";
 
 import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/button";
 
-import { paymentUrl, propertiesUrl, whatsappUrl } from "./data";
+import {
+  ariaLabels,
+  contact,
+  paymentUrl,
+  propertiesUrl,
+  socialLinks,
+  whatsappUrlFor,
+} from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 
 export function Footer() {
@@ -17,7 +25,7 @@ export function Footer() {
         id="footer-title"
         class="sr-only"
       >
-        Información de contacto de Inmobiliaria M&M
+        {ariaLabels.contactSection}
       </h2>
       <div class="grid grid-cols-1 gap-0 pb-0 md:grid-cols-[1.4fr_repeat(2,1fr)] md:gap-6 md:border-b md:border-white/15 md:pb-5 lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-[clamp(2rem,5vw,3rem)] lg:pb-10">
         <div class="flex flex-col items-center gap-3 md:items-start md:gap-3 lg:gap-5">
@@ -29,39 +37,43 @@ export function Footer() {
           </p>
           <nav
             class="flex gap-2.5 md:hidden"
-            aria-label="Canales de contacto"
+            aria-label={ariaLabels.contactChannels}
           >
-            <Button
-              variant="social"
-              type="button"
-              aria-label="Facebook, próximamente"
-              disabled
-            >
-              f
-            </Button>
-            <Button
-              variant="social"
-              type="button"
-              aria-label="Instagram, próximamente"
-              disabled
-            >
-              ◎
-            </Button>
-            <Link
-              class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-              to={whatsappUrl}
-              aria-label="WhatsApp"
-            >
-              <WhatsAppIcon />
-            </Link>
-            <Button
-              variant="social"
-              type="button"
-              aria-label="Telegram, próximamente"
-              disabled
-            >
-              ↗
-            </Button>
+            <For each={socialLinks.slice(0, 2)}>
+              {(social) => (
+                <Button
+                  variant="social"
+                  type="button"
+                  aria-label={social.label}
+                  disabled
+                >
+                  {social.glyph}
+                </Button>
+              )}
+            </For>
+            <For each={contact.whatsapps}>
+              {(whatsapp) => (
+                <Link
+                  class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
+                  to={whatsappUrlFor(whatsapp.number)}
+                  aria-label={whatsapp.label}
+                >
+                  <WhatsAppIcon />
+                </Link>
+              )}
+            </For>
+            <For each={socialLinks.slice(2)}>
+              {(social) => (
+                <Button
+                  variant="social"
+                  type="button"
+                  aria-label={social.label}
+                  disabled
+                >
+                  {social.glyph}
+                </Button>
+              )}
+            </For>
           </nav>
         </div>
         <div class="hidden flex-col gap-5 md:flex">
@@ -69,15 +81,16 @@ export function Footer() {
             Contacto
           </h3>
           <address class="flex flex-col gap-3 text-sm text-white/85 not-italic [&_a]:no-underline [&_a:hover]:underline-offset-4">
-            <span>Bogotá, Colombia</span>
-            <a href="tel:+573173005145">+57 317 300 5145</a>
-            <a href="tel:+573173005146">+57 317 300 5146</a>
-            <a href="mailto:info@inmobiliariamm.com">info@inmobiliariamm.com</a>
+            <span>{contact.city}</span>
+            <For each={contact.phones}>
+              {(phone) => <a href={`tel:${phone.value}`}>{phone.display}</a>}
+            </For>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
           </address>
         </div>
         <nav
           class="hidden flex-col gap-3 text-sm text-white/85 md:flex [&_a]:no-underline [&_a:hover]:underline-offset-4"
-          aria-label="Servicios"
+          aria-label={ariaLabels.servicesNav}
         >
           <h3 class="pb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">
             Servicios
@@ -95,7 +108,7 @@ export function Footer() {
         </nav>
         <nav
           class="hidden flex-col gap-3 text-sm text-white/85 lg:flex [&_a]:no-underline [&_a:hover]:underline-offset-4"
-          aria-label="Compañía"
+          aria-label={ariaLabels.companyNav}
         >
           <h3 class="pb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">
             Compañía
@@ -119,41 +132,47 @@ export function Footer() {
         </small>
         <nav
           class="flex gap-2.5"
-          aria-label="Canales de contacto"
+          aria-label={ariaLabels.contactChannels}
         >
-          <Button
-            variant="social"
-            type="button"
-            aria-label="Facebook, próximamente"
-            disabled
-          >
-            f
-          </Button>
-          <Button
-            variant="social"
-            type="button"
-            aria-label="Instagram, próximamente"
-            disabled
-          >
-            ◎
-          </Button>
-          <a
-            class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-            href={whatsappUrl}
-            aria-label="WhatsApp"
-          >
-            <WhatsAppIcon />
-          </a>
-          <Button
-            variant="social"
-            type="button"
-            aria-label="Telegram, próximamente"
-            disabled
-          >
-            ↗
-          </Button>
+          <For each={socialLinks.slice(0, 2)}>
+            {(social) => (
+              <Button
+                variant="social"
+                type="button"
+                aria-label={social.label}
+                disabled
+              >
+                {social.glyph}
+              </Button>
+            )}
+          </For>
+          <For each={contact.whatsapps}>
+            {(whatsapp) => (
+              <a
+                class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
+                href={whatsappUrlFor(whatsapp.number)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={whatsapp.label}
+              >
+                <WhatsAppIcon />
+              </a>
+            )}
+          </For>
+          <For each={socialLinks.slice(2)}>
+            {(social) => (
+              <Button
+                variant="social"
+                type="button"
+                aria-label={social.label}
+                disabled
+              >
+                {social.glyph}
+              </Button>
+            )}
+          </For>
           <span class="self-center text-[0.625rem] tracking-[0.04em] whitespace-nowrap uppercase">
-            Próximamente
+            {ariaLabels.comingSoon}
           </span>
         </nav>
       </div>

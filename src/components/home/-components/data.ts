@@ -1,4 +1,79 @@
-export const whatsappUrl: string = "https://wa.me/573173005146";
+type PhoneContact = {
+  /** Number in international format with "+", used for the "tel:" href. */
+  value: string;
+  /** Human-readable format shown in the UI. */
+  display: string;
+};
+
+type WhatsAppContact = {
+  /** Number in international format without "+" or spaces, used for wa.me links. */
+  number: string;
+  /** Optional label to distinguish channels (e.g. "Sales", "Rentals"). */
+  label: `WhatsApp ${string}`;
+};
+
+type HoursSpan = {
+  /** Days covered, e.g. "Lun-Vie". */
+  days: string;
+  /** Opening hours for those days, e.g. "8:00-18:00". */
+  time: string;
+};
+
+export const contact = {
+  city: "Bogotá, Colombia",
+  hours: [
+    { days: "Lun-Vie", time: "8:00-18:00" },
+    { days: "Sáb", time: "9:00-13:00" },
+  ] satisfies HoursSpan[],
+  email: "info@inmobiliariamym.com",
+  phones: [
+    { value: "+573173005145", display: "+57 317 300 5145" },
+    { value: "+573173005146", display: "+57 317 300 5146" },
+  ] satisfies PhoneContact[],
+  whatsapps: [
+    { number: "573173005146", label: "WhatsApp Comercial" },
+  ] satisfies WhatsAppContact[],
+};
+
+/** Builds a wa.me link from a WhatsApp number (international format, no "+"). */
+export function whatsappUrlFor(number: string): string {
+  return `https://wa.me/${number}`;
+}
+
+/** Primary WhatsApp link; add or reorder entries in `contact.whatsapps` to change it. */
+export const whatsappUrl: string = whatsappUrlFor(contact.whatsapps[0].number);
+
+type SocialLink = {
+  name: string;
+  /** Icon glyph rendered inside the button while the channel is disabled. */
+  glyph: string;
+  /** Accessible label, e.g. "Facebook, próximamente". */
+  label: string;
+};
+
+/** Disabled social channels shown around the WhatsApp buttons. */
+export const socialLinks = [
+  { name: "Facebook", glyph: "f", label: "Facebook, próximamente" },
+  { name: "Instagram", glyph: "◎", label: "Instagram, próximamente" },
+  { name: "Telegram", glyph: "↗", label: "Telegram, próximamente" },
+] as SocialLink[];
+
+/** Accessible labels and sr-only text for the site chrome. */
+export const ariaLabels = {
+  brandLink: "Inicio, Organización Inmobiliaria M&M LTDA",
+  openMenu: "Abrir menú de navegación",
+  closeMenu: "Cerrar menú de navegación",
+  mainNav: "Navegación principal",
+  mobileNav: "Navegación móvil",
+  drawerTitle: "Navegación",
+  contactChannels: "Canales de contacto",
+  contactSection: "Información de contacto de Inmobiliaria M&M",
+  servicesNav: "Servicios",
+  companyNav: "Compañía",
+  drawerDescription:
+    "Enlaces de navegación y datos de contacto de Organización Inmobiliaria M&M.",
+  comingSoon: "Próximamente",
+};
 
 export const navigation = [
   { label: "Inicio", href: "#inicio" },

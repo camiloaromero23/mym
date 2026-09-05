@@ -12,7 +12,14 @@ import {
   DrawerTrigger,
 } from "@/components/drawer";
 
-import { navigation, whatsappUrl } from "./data";
+import {
+  ariaLabels,
+  contact,
+  navigation,
+  socialLinks,
+  whatsappUrl,
+  whatsappUrlFor,
+} from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 
 export function Header() {
@@ -29,41 +36,17 @@ export function Header() {
 
   return (
     <header class="relative z-30">
-      <div class="hidden items-center justify-center bg-mm-navy-ink px-[clamp(1.5rem,4.4vw,3.5rem)] py-2 text-[0.6875rem] tracking-[0.04em] text-white/90 lg:flex lg:justify-between lg:py-[0.65rem] lg:text-xs">
-        <div class="items-center justify-center gap-[1.2rem] [&>i]:hidden lg:[&>i]:block lg:[&>span:last-child]:inline">
-          <span>Bogotá, Colombia</span>
-          <i
-            class="size-1 rounded-full bg-mm-gold"
-            aria-hidden="true"
-          />
-          <span>Lun-Vie 8:00-18:00 · Sáb 9:00-13:00</span>
-        </div>
-        <address class="hidden items-center gap-[1.2rem] not-italic lg:flex [&_a]:no-underline [&_a:hover]:text-white [&_a:hover]:underline-offset-4">
-          <a href="tel:+573173005145">+57 317 300 5145</a>
-          <i
-            class="size-1 rounded-full bg-mm-gold"
-            aria-hidden="true"
-          />
-          <a href="tel:+573173005146">+57 317 300 5146</a>
-          <i
-            class="size-1 rounded-full bg-mm-gold"
-            aria-hidden="true"
-          />
-          <a href="mailto:info@inmobiliariamm.com">info@inmobiliariamm.com</a>
-        </address>
-      </div>
-
       <div class="relative z-30 flex items-center justify-between border-b border-mm-line bg-mm-bone px-4.5 py-3.5 md:px-8 md:py-4 lg:min-h-25 lg:px-[clamp(1.5rem,4.4vw,3.5rem)]">
         <a
           class="block h-15 w-30 leading-none lg:h-auto lg:w-43"
           href="#inicio"
-          aria-label="Inicio, Organización Inmobiliaria M&M LTDA"
+          aria-label={ariaLabels.brandLink}
         >
           <BrandLogo class="block h-full w-full object-contain lg:h-auto" />
         </a>
         <nav
           class="hidden items-center gap-6 md:flex lg:gap-[clamp(1.15rem,2.8vw,2.25rem)]"
-          aria-label="Navegación principal"
+          aria-label={ariaLabels.mainNav}
         >
           <For each={navigation}>
             {(item) => (
@@ -86,31 +69,30 @@ export function Header() {
           <Drawer side="right">
             <DrawerTrigger
               class="inline-flex size-9 items-center justify-center rounded-lg border-0 bg-mm-navy text-base text-white md:hidden"
-              aria-label="Abrir menú de navegación"
+              aria-label={ariaLabels.openMenu}
             >
-              <span class="sr-only">Abrir menú de navegación</span>
+              <span class="sr-only">{ariaLabels.openMenu}</span>
               <span aria-hidden="true">☰</span>
             </DrawerTrigger>
             <DrawerContent class="bg-mm-bone text-mm-ink">
               <div class="flex items-center justify-between border-b border-mm-line px-5.5 pb-3">
                 <DrawerLabel class="text-[1.0625rem] font-bold">
-                  Navegación
+                  {ariaLabels.drawerTitle}
                 </DrawerLabel>
                 <DrawerClose
                   class="inline-flex size-9 items-center justify-center rounded-lg border-0 bg-mm-navy text-xl text-white"
-                  aria-label="Cerrar menú de navegación"
+                  aria-label={ariaLabels.closeMenu}
                 >
                   <span aria-hidden="true">×</span>
                 </DrawerClose>
               </div>
               <DrawerDescription class="sr-only">
-                Enlaces de navegación y datos de contacto de Organización
-                Inmobiliaria M&M.
+                {ariaLabels.drawerDescription}
               </DrawerDescription>
               <div class="flex min-h-0 flex-1 flex-col overflow-y-auto">
                 <nav
                   class="flex flex-col gap-3 px-5.5 py-5.5"
-                  aria-label="Navegación móvil"
+                  aria-label={ariaLabels.mobileNav}
                 >
                   <div class="flex flex-col">
                     <For each={navigation}>
@@ -135,46 +117,52 @@ export function Header() {
                   </DrawerClose>
                 </nav>
                 <address class="flex flex-col gap-2.5 bg-mm-navy p-5.5 text-[0.8125rem] text-white/90 not-italic [&_a]:no-underline">
-                  <span>Bogotá, Colombia</span>
-                  <a href="tel:+573173005146">+57 317 300 5146</a>
-                  <a href="mailto:info@inmobiliariamym.com">
-                    info@inmobiliariamym.com
-                  </a>
+                  <span>{contact.city}</span>
+                  <For each={contact.phones}>
+                    {(phone) => (
+                      <a href={`tel:${phone.value}`}>{phone.display}</a>
+                    )}
+                  </For>
+                  <a href={`mailto:${contact.email}`}>{contact.email}</a>
                   <nav
                     class="flex gap-2 border-t border-white/15 pt-3"
-                    aria-label="Canales de contacto"
+                    aria-label={ariaLabels.contactChannels}
                   >
-                    <Button
-                      variant="social"
-                      type="button"
-                      aria-label="Facebook, próximamente"
-                      disabled
-                    >
-                      f
-                    </Button>
-                    <Button
-                      variant="social"
-                      type="button"
-                      aria-label="Instagram, próximamente"
-                      disabled
-                    >
-                      ◎
-                    </Button>
-                    <Link
-                      class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-                      to={whatsappUrl}
-                      aria-label="WhatsApp"
-                    >
-                      <WhatsAppIcon />
-                    </Link>
-                    <Button
-                      variant="social"
-                      type="button"
-                      aria-label="Telegram, próximamente"
-                      disabled
-                    >
-                      ↗
-                    </Button>
+                    <For each={socialLinks.slice(0, 2)}>
+                      {(social) => (
+                        <Button
+                          variant="social"
+                          type="button"
+                          aria-label={social.label}
+                          disabled
+                        >
+                          {social.glyph}
+                        </Button>
+                      )}
+                    </For>
+                    <For each={contact.whatsapps}>
+                      {(whatsapp) => (
+                        <Link
+                          class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
+                          to={whatsappUrlFor(whatsapp.number)}
+                          aria-label={whatsapp.label}
+                        >
+                          <WhatsAppIcon />
+                        </Link>
+                      )}
+                    </For>
+                    <For each={socialLinks.slice(2)}>
+                      {(social) => (
+                        <Button
+                          variant="social"
+                          type="button"
+                          aria-label={social.label}
+                          disabled
+                        >
+                          {social.glyph}
+                        </Button>
+                      )}
+                    </For>
                   </nav>
                 </address>
               </div>
