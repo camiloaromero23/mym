@@ -82,13 +82,13 @@ export const navigation = [
   { label: "Contacto", href: "#contacto" },
 ];
 
-export const ownersPortalUrl: string =
+const ownersPortalUrl: string =
   "https://simidocs.siminmobiliarias.com/base/simired/simidocsapi1.0/index.php?inmo=47&tipo=1";
 
 export const paymentUrl: string =
   "https://customers.ecollect.co/html/10515/ecollect10515.html";
 
-export const tenantsPortalUrl: string =
+const tenantsPortalUrl: string =
   "https://simidocs.siminmobiliarias.com/base/simired/simidocsapi1.0/index.php?inmo=47&tipo=2";
 
 export const propertiesUrl: string =
