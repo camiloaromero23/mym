@@ -24,7 +24,7 @@ export function DrawerContent(props: DrawerContentProps) {
       />
       <DrawerPrimitive.Content
         class={cn(
-          "fixed inset-y-0 right-0 z-50 flex h-dvh h-screen w-[min(100vw,24rem)] flex-col overflow-hidden bg-white pt-5 shadow-[-0.75rem_0_2rem_rgb(0_0_0/20%)] outline-none data-transitioning:transition-transform data-transitioning:duration-500 data-transitioning:ease-[cubic-bezier(0.32,0.72,0,1)]",
+          "fixed inset-y-0 right-0 z-50 flex h-dvh w-[min(100vw,24rem)] flex-col overflow-hidden bg-white pt-5 shadow-[-0.75rem_0_2rem_rgb(0_0_0/20%)] outline-none data-transitioning:transition-transform data-transitioning:duration-500 data-transitioning:ease-[cubic-bezier(0.32,0.72,0,1)]",
           local.class,
         )}
         {...others}
