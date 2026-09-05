@@ -1,0 +1,18 @@
+{
+  // This file is JSONC: fallow reads these comments; generic JSON tools may not.
+  "$schema": "./node_modules/fallow/schema.json",
+  "entry": ["src/index.{ts,tsx,js,jsx}", "src/main.{ts,tsx,js,jsx}"],
+  "ignoreDependencies": [
+    "@tanstack/solid-devtools",
+    // Reserved for future queryClient wiring (SSR query); intentionally unused for now.
+    "@tanstack/solid-router-ssr-query",
+  ],
+  "duplicates": {
+    "minOccurrences": 3,
+    "mode": "semantic",
+  },
+  "health": {
+    "maxUnitSize": 120,
+  },
+  "rules": {},
+}

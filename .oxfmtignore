@@ -5,4 +5,5 @@
 **/*.lock
 **/*.d.ts
 **/tsconfig.tsbuildinfo
+**/routeTree.gen.ts
 .atl/**
