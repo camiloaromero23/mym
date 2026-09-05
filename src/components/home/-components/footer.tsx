@@ -1,7 +1,9 @@
+import { Link } from "@tanstack/solid-router";
+
 import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/button";
 
-import { whatsappUrl } from "./data";
+import { paymentUrl, propertiesUrl, whatsappUrl } from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 
 export function Footer() {
@@ -45,13 +47,13 @@ export function Footer() {
             >
               ◎
             </Button>
-            <a
+            <Link
               class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-              href={whatsappUrl}
+              to={whatsappUrl}
               aria-label="WhatsApp"
             >
               <WhatsAppIcon />
-            </a>
+            </Link>
             <Button
               variant="social"
               type="button"
@@ -83,12 +85,13 @@ export function Footer() {
           <a href="#contacto">Arriendo</a>
           <a href="#contacto">Venta</a>
           <a href="#contacto">Administración</a>
-          <span class="text-white/60">
-            Pagar canon{" "}
-            <span class="text-[0.625rem] tracking-[0.04em] uppercase">
-              Próximamente
-            </span>
-          </span>
+          <Link
+            to={paymentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pagar canon
+          </Link>
         </nav>
         <nav
           class="hidden flex-col gap-3 text-sm text-white/85 lg:flex [&_a]:no-underline [&_a:hover]:underline-offset-4"
@@ -98,12 +101,13 @@ export function Footer() {
             Compañía
           </h3>
           <a href="#contacto">Nosotros</a>
-          <span class="text-white/60">
-            Inmuebles{" "}
-            <span class="text-[0.625rem] tracking-[0.04em] uppercase">
-              Próximamente
-            </span>
-          </span>
+          <Link
+            to={propertiesUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Inmuebles
+          </Link>
           <a href="#contacto">Contacto</a>
           <a href="#contacto">Aviso legal</a>
         </nav>

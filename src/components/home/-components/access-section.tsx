@@ -1,6 +1,8 @@
+import { Link } from "@tanstack/solid-router";
 import { For } from "solid-js";
 
-import { Button } from "@/components/button";
+import { buttonVariants } from "@/components/button";
+import { cn } from "@/lib/utils";
 
 import { accessCards } from "./data";
 import { AccessIcon } from "./icons/access-icon";
@@ -46,17 +48,17 @@ export function AccessSection() {
                   {card.description}
                 </p>
               </div>
-              <Button
-                variant="navy"
-                class="mt-3 self-start px-3.5 py-2.5 text-xs md:mt-0 lg:mt-3 lg:px-5.5 lg:py-3 lg:text-sm"
-                type="button"
-                disabled
+              <Link
+                class={cn(
+                  buttonVariants({ variant: "navy" }),
+                  "mt-3 self-start px-3.5 py-2.5 text-xs no-underline opacity-100 md:mt-0 lg:mt-3 lg:px-5.5 lg:py-3 lg:text-sm",
+                )}
+                to={card.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {card.action}{" "}
-                <span class="text-[0.625rem] tracking-[0.04em] whitespace-nowrap uppercase">
-                  Próximamente
-                </span>
-              </Button>
+                {card.action}
+              </Link>
             </article>
           )}
         </For>

@@ -1,6 +1,9 @@
-import { Button } from "@/components/button";
+import { Link } from "@tanstack/solid-router";
 
-import { whatsappUrl } from "./data";
+import { buttonVariants } from "@/components/button";
+import { cn } from "@/lib/utils";
+
+import { propertiesUrl, whatsappUrl } from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 
 export function Hero() {
@@ -36,24 +39,24 @@ export function Hero() {
           </div>
         </div>
         <div class="flex flex-col items-stretch justify-center gap-3 pt-5 md:flex-row md:flex-wrap md:items-center md:pt-6 lg:pt-9">
-          <a
+          <Link
             class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] md:w-auto [&>svg]:size-5 [&>svg]:fill-current"
-            href={whatsappUrl}
+            to={whatsappUrl}
           >
             <WhatsAppIcon />
             Contáctanos por WhatsApp
-          </a>
-          <Button
-            variant="outline"
-            class="hidden w-full md:inline-flex md:w-auto"
-            type="button"
-            disabled
+          </Link>
+          <Link
+            class={cn(
+              buttonVariants({ variant: "outline" }),
+              "hidden w-full no-underline opacity-100 md:inline-flex md:w-auto",
+            )}
+            to={propertiesUrl}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Ver inmuebles{" "}
-            <span class="text-[0.625rem] tracking-[0.04em] whitespace-nowrap uppercase">
-              Próximamente
-            </span>
-          </Button>
+            Ver inmuebles
+          </Link>
         </div>
       </div>
     </section>

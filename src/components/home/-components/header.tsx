@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/solid-router";
 import { createSignal, For, onCleanup, onMount, Show } from "solid-js";
 
 import { BrandLogo } from "@/components/brand-logo";
@@ -74,12 +75,12 @@ export function Header() {
               </a>
             )}
           </For>
-          <a
+          <Link
             class="rounded-full bg-mm-navy px-4.5 py-2.5 text-xs font-bold text-white no-underline hover:bg-mm-navy-ink lg:px-[1.35rem] lg:py-3 lg:text-[0.8125rem]"
-            href={whatsappUrl}
+            to={whatsappUrl}
           >
             Contáctanos
-          </a>
+          </Link>
         </nav>
         <Show when={isMobileViewport()}>
           <Drawer side="right">
@@ -159,13 +160,13 @@ export function Header() {
                     >
                       ◎
                     </Button>
-                    <a
+                    <Link
                       class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-                      href={whatsappUrl}
+                      to={whatsappUrl}
                       aria-label="WhatsApp"
                     >
                       <WhatsAppIcon />
-                    </a>
+                    </Link>
                     <Button
                       variant="social"
                       type="button"
