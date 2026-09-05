@@ -2,7 +2,6 @@ import { Link } from "@tanstack/solid-router";
 import { createSignal, For, onCleanup, onMount, Show } from "solid-js";
 
 import { BrandLogo } from "@/components/brand-logo";
-import { Button } from "@/components/button";
 import {
   Drawer,
   DrawerClose,
@@ -12,14 +11,8 @@ import {
   DrawerTrigger,
 } from "@/components/drawer";
 
-import {
-  ariaLabels,
-  contact,
-  navigation,
-  socialLinks,
-  whatsappUrl,
-  whatsappUrlFor,
-} from "./data";
+import { ContactChannels } from "./contact-channels";
+import { ariaLabels, contact, navigation, whatsappUrl } from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 
 export function Header() {
@@ -124,46 +117,7 @@ export function Header() {
                     )}
                   </For>
                   <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                  <nav
-                    class="flex gap-2 border-t border-white/15 pt-3"
-                    aria-label={ariaLabels.contactChannels}
-                  >
-                    <For each={socialLinks.slice(0, 2)}>
-                      {(social) => (
-                        <Button
-                          variant="social"
-                          type="button"
-                          aria-label={social.label}
-                          disabled
-                        >
-                          {social.glyph}
-                        </Button>
-                      )}
-                    </For>
-                    <For each={contact.whatsapps}>
-                      {(whatsapp) => (
-                        <Link
-                          class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-                          to={whatsappUrlFor(whatsapp.number)}
-                          aria-label={whatsapp.label}
-                        >
-                          <WhatsAppIcon />
-                        </Link>
-                      )}
-                    </For>
-                    <For each={socialLinks.slice(2)}>
-                      {(social) => (
-                        <Button
-                          variant="social"
-                          type="button"
-                          aria-label={social.label}
-                          disabled
-                        >
-                          {social.glyph}
-                        </Button>
-                      )}
-                    </For>
-                  </nav>
+                  <ContactChannels class="flex gap-2 border-t border-white/15 pt-3" />
                 </address>
               </div>
             </DrawerContent>

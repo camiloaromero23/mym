@@ -2,17 +2,9 @@ import { Link } from "@tanstack/solid-router";
 import { For } from "solid-js";
 
 import { BrandLogo } from "@/components/brand-logo";
-import { Button } from "@/components/button";
 
-import {
-  ariaLabels,
-  contact,
-  paymentUrl,
-  propertiesUrl,
-  socialLinks,
-  whatsappUrlFor,
-} from "./data";
-import { WhatsAppIcon } from "./icons/whatsapp-icon";
+import { ContactChannels } from "./contact-channels";
+import { ariaLabels, contact, paymentUrl, propertiesUrl } from "./data";
 
 export function Footer() {
   return (
@@ -35,46 +27,7 @@ export function Footer() {
           <p class="max-w-[18rem] font-mm-serif text-base leading-normal text-white/85 italic">
             Patrimonio que perdura, confianza que permanece.
           </p>
-          <nav
-            class="flex gap-2.5 md:hidden"
-            aria-label={ariaLabels.contactChannels}
-          >
-            <For each={socialLinks.slice(0, 2)}>
-              {(social) => (
-                <Button
-                  variant="social"
-                  type="button"
-                  aria-label={social.label}
-                  disabled
-                >
-                  {social.glyph}
-                </Button>
-              )}
-            </For>
-            <For each={contact.whatsapps}>
-              {(whatsapp) => (
-                <Link
-                  class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-                  to={whatsappUrlFor(whatsapp.number)}
-                  aria-label={whatsapp.label}
-                >
-                  <WhatsAppIcon />
-                </Link>
-              )}
-            </For>
-            <For each={socialLinks.slice(2)}>
-              {(social) => (
-                <Button
-                  variant="social"
-                  type="button"
-                  aria-label={social.label}
-                  disabled
-                >
-                  {social.glyph}
-                </Button>
-              )}
-            </For>
-          </nav>
+          <ContactChannels class="flex gap-2.5 md:hidden" />
         </div>
         <div class="hidden flex-col gap-5 md:flex">
           <h3 class="text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">
@@ -130,51 +83,11 @@ export function Footer() {
           © 2026 Organización Inmobiliaria M&M LTDA. Todos los derechos
           reservados.
         </small>
-        <nav
-          class="flex gap-2.5"
-          aria-label={ariaLabels.contactChannels}
-        >
-          <For each={socialLinks.slice(0, 2)}>
-            {(social) => (
-              <Button
-                variant="social"
-                type="button"
-                aria-label={social.label}
-                disabled
-              >
-                {social.glyph}
-              </Button>
-            )}
-          </For>
-          <For each={contact.whatsapps}>
-            {(whatsapp) => (
-              <a
-                class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-                href={whatsappUrlFor(whatsapp.number)}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={whatsapp.label}
-              >
-                <WhatsAppIcon />
-              </a>
-            )}
-          </For>
-          <For each={socialLinks.slice(2)}>
-            {(social) => (
-              <Button
-                variant="social"
-                type="button"
-                aria-label={social.label}
-                disabled
-              >
-                {social.glyph}
-              </Button>
-            )}
-          </For>
+        <ContactChannels class="flex gap-2.5">
           <span class="self-center text-[0.625rem] tracking-[0.04em] whitespace-nowrap uppercase">
             {ariaLabels.comingSoon}
           </span>
-        </nav>
+        </ContactChannels>
       </div>
     </footer>
   );
