@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/solid-router";
+import { cn } from "cn";
 
 import { buttonVariants } from "@/components/button";
-import { cn } from "@/lib/utils";
 
 import { propertiesUrl, whatsappUrl } from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";

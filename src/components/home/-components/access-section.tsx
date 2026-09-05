@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/solid-router";
+import { cn } from "cn";
 import { For } from "solid-js";
 
 import { buttonVariants } from "@/components/button";
-import { cn } from "@/lib/utils";
 
 import { accessCards } from "./data";
 import { AccessIcon } from "./icons/access-icon";

@@ -1,7 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "cn";
 import { splitProps, type JSX } from "solid-js";
-
-import { cn } from "@/lib/utils";
 
 export const buttonVariants = cva(
   "inline-flex items-center justify-center disabled:cursor-not-allowed",
