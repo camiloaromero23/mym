@@ -134,7 +134,7 @@ export function Header() {
           </For>
           <WhatsAppCta
             class={NAVY_CTA_CLASS}
-            popupClass="absolute inset-auto top-full right-0 m-0 mt-3 w-60"
+            popupClass="absolute inset-auto top-full right-0 m-0 mt-3 w-60 origin-top-right"
           >
             Contáctanos
           </WhatsAppCta>

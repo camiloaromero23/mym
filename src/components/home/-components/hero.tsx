@@ -42,7 +42,7 @@ export function Hero() {
         <div class="flex flex-col items-stretch justify-center gap-3 pt-5 md:flex-row md:flex-wrap md:items-center md:pt-6 lg:pt-9">
           <WhatsAppCta
             class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] md:w-auto [&>svg]:size-5 [&>svg]:fill-current"
-            popupClass="static m-0 mt-3 w-full md:absolute md:inset-auto md:top-full md:right-0 md:w-60"
+            popupClass="static m-0 mt-3 w-full md:absolute md:inset-auto md:top-full md:right-0 md:w-60 origin-top-right"
           >
             <WhatsAppIcon />
             Contáctanos por WhatsApp

@@ -26,7 +26,7 @@ export function FloatingWhatsApp() {
           class={CTA_CLASS}
           linkAriaLabel={contact.whatsapps[0].label}
           triggerAriaLabel="Contactar por WhatsApp"
-          popupClass="absolute inset-auto right-0 bottom-full m-0 mb-3 w-60"
+          popupClass="absolute inset-auto right-0 bottom-full m-0 mb-3 w-60 origin-bottom-right"
         >
           <WhatsAppIcon />
         </WhatsAppCta>
