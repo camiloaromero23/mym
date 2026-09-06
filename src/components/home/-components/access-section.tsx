@@ -33,11 +33,11 @@ export function AccessSection() {
           {(card, index) => (
             <article
               style={{ "animation-delay": `${60 * (index() + 1)}ms` }}
-              class="group relative flex min-h-0 animate-rise-in flex-col rounded-[0.875rem] border border-mm-line bg-white p-4.5 transition-[border-color,box-shadow,transform] duration-180 ease-out focus-within:-translate-y-1 focus-within:border-[rgb(30_58_95/30%)] focus-within:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] hover:-translate-y-1 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] motion-reduce:animate-none md:gap-3 md:p-5.5 lg:min-h-74 lg:rounded-[1.25rem] lg:p-8"
+              class="relative flex min-h-0 animate-rise-in flex-col rounded-[0.875rem] border border-mm-line bg-white p-4.5 [transition:transform_180ms_ease-out,border-color_300ms_ease-out,box-shadow_300ms_ease-out] focus-within:-translate-y-1 focus-within:border-[rgb(30_58_95/30%)] focus-within:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] hover:-translate-y-1 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] motion-reduce:animate-none md:gap-3 md:p-5.5 lg:min-h-74 lg:rounded-[1.25rem] lg:p-8"
             >
               <div class="flex flex-1 flex-col">
                 <div class="flex items-center gap-3 pr-12 md:gap-3.5 lg:gap-4.5">
-                  <span class="inline-flex size-10 shrink-0 scale-100 items-center justify-center rounded-[0.625rem] bg-mm-sky text-mm-navy transition-[scale] duration-180 ease-out group-hover:scale-105 md:size-12 md:rounded-xl lg:size-16 lg:rounded-2xl [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] md:[&>svg]:size-5.5 lg:[&>svg]:size-auto">
+                  <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-[0.625rem] bg-mm-sky text-mm-navy md:size-12 md:rounded-xl lg:size-16 lg:rounded-2xl [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] md:[&>svg]:size-5.5 lg:[&>svg]:size-auto">
                     <AccessIcon name={card.icon} />
                   </span>
                   <h3 class="text-sm leading-[1.2] font-bold tracking-tight text-mm-navy-ink md:text-base lg:text-[1.375rem]">
