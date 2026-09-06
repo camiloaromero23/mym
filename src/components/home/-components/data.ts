@@ -25,7 +25,7 @@ export const contact = {
     { days: "Lun-Vie", time: "8:00-18:00" },
     { days: "Sáb", time: "9:00-13:00" },
   ] satisfies HoursSpan[],
-  email: "info@inmobiliariamym.com",
+  email: "inmobiliariamym@yahoo.com",
   phones: [
     { value: "+573173005145", display: "+57 317 300 5145" },
     { value: "+573173005146", display: "+57 317 300 5146" },
