@@ -107,3 +107,12 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Drawer closing snaps faster than the deliberate opening: 300ms vs 500ms.
+   corvu sets data-closing only while transitioning closed. Two attribute
+   selectors outrank the data-transitioning:duration-500 utility regardless
+   of Tailwind's variant sort order. */
+[data-corvu-drawer-content][data-closing],
+[data-corvu-drawer-overlay][data-closing] {
+  transition-duration: 300ms;
+}
