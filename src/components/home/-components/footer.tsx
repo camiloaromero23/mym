@@ -4,7 +4,10 @@ import { For } from "solid-js";
 import { LogoMyM } from "@/components/icons/logo-mym";
 
 import { ContactChannels } from "./contact-channels";
+import { ContactDetails } from "./contact-details";
 import { ariaLabels, contact, paymentUrl, propertiesUrl } from "./data";
+import { WhatsAppIcon } from "./icons/whatsapp-icon";
+import { WHATSAPP_CTA_BLOCK_CLASS, WhatsAppCta } from "./whatsapp-chooser";
 
 export function Footer() {
   return (
@@ -32,7 +35,13 @@ export function Footer() {
           <p class="max-w-[18rem] font-mm-serif text-base leading-normal text-white/85 italic">
             Patrimonio que perdura, confianza que permanece.
           </p>
-          <ContactChannels class="flex gap-2.5 md:hidden" />
+          <div class="flex w-full flex-col items-stretch gap-4 md:hidden">
+            <WhatsAppCta class={WHATSAPP_CTA_BLOCK_CLASS}>
+              <WhatsAppIcon />
+              Contáctanos por WhatsApp
+            </WhatsAppCta>
+            <ContactDetails class="border-t border-white/15 pt-5 text-left text-[0.8125rem] text-white/90" />
+          </div>
         </div>
         <div class="hidden flex-col gap-5 md:flex">
           <h3 class="text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">

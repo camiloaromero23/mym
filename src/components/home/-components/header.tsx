@@ -12,12 +12,12 @@ import {
   DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerLabel,
   DrawerTrigger,
 } from "@/components/drawer";
 import { LogoMyM } from "@/components/icons/logo-mym";
+import { LogoMyMMark } from "@/components/icons/logo-mym-mark";
 
-import { ContactChannels } from "./contact-channels";
+import { ContactDetails } from "./contact-details";
 import {
   ariaLabels,
   contact,
@@ -26,10 +26,7 @@ import {
   whatsappUrlFor,
 } from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
-import { WhatsAppCta } from "./whatsapp-chooser";
-
-const DRAWER_CTA_CLASS =
-  "inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-xs hover:bg-[#278e53] transition-[background-color,scale] duration-160 ease-out active:scale-97 [&>svg]:size-5 [&>svg]:fill-current";
+import { WHATSAPP_CTA_BLOCK_CLASS, WhatsAppCta } from "./whatsapp-chooser";
 
 const NAVY_CTA_CLASS =
   "inline-flex items-center justify-center rounded-full bg-mm-navy px-4.5 py-2.5 text-xs font-bold text-white no-underline hover:bg-mm-navy-ink transition-[background-color,scale] duration-160 ease-out active:scale-97 lg:px-[1.35rem] lg:py-3 lg:text-[0.8125rem]";
@@ -150,9 +147,16 @@ export function Header() {
             </DrawerTrigger>
             <DrawerContent class="bg-mm-bone text-mm-ink">
               <div class="flex items-center justify-between border-b border-mm-line px-5.5 pb-3">
-                <DrawerLabel class="text-[1.0625rem] font-bold">
-                  {ariaLabels.drawerTitle}
-                </DrawerLabel>
+                <a
+                  class="block size-10 leading-none"
+                  href="#inicio"
+                  aria-label={ariaLabels.brandLink}
+                >
+                  <LogoMyMMark
+                    class="block h-full w-full"
+                    aria-hidden="true"
+                  />
+                </a>
                 <DrawerClose
                   class="inline-flex size-9 items-center justify-center rounded-lg border-0 bg-mm-navy text-xl text-white transition-[background-color,scale] duration-160 ease-out hover:bg-mm-navy-ink active:scale-97"
                   aria-label={ariaLabels.closeMenu}
@@ -168,45 +172,38 @@ export function Header() {
                   class="flex flex-col gap-3 px-5.5 py-5.5"
                   aria-label={ariaLabels.mobileNav}
                 >
-                  <div class="flex flex-col">
-                    <For each={navigation}>
-                      {(item) => (
-                        <DrawerClose
-                          as="a"
-                          href={item.href}
-                          class="border-b border-mm-line py-3.5 text-[1.0625rem] font-bold no-underline"
-                        >
-                          {item.label}
-                        </DrawerClose>
-                      )}
-                    </For>
-                  </div>
+                  <For each={navigation}>
+                    {(item) => (
+                      <DrawerClose
+                        as="a"
+                        href={item.href}
+                        class="border-b border-mm-line py-3.5 text-[1.0625rem] font-bold no-underline"
+                      >
+                        {item.label}
+                      </DrawerClose>
+                    )}
+                  </For>
+                </nav>
+              </div>
+              <div class="flex flex-col">
+                <div class="px-5.5 pt-5.5 pb-2.5">
                   <Show
                     when={contact.whatsapps.length > 1}
                     fallback={
                       <DrawerClose
                         as="a"
                         href={whatsappUrl}
-                        class={DRAWER_CTA_CLASS}
+                        class={WHATSAPP_CTA_BLOCK_CLASS}
                       >
                         <WhatsAppIcon />
                         Contáctanos por WhatsApp
                       </DrawerClose>
                     }
                   >
-                    <WhatsAppDrawerCta class={DRAWER_CTA_CLASS} />
+                    <WhatsAppDrawerCta class={WHATSAPP_CTA_BLOCK_CLASS} />
                   </Show>
-                </nav>
-                <address class="flex flex-col gap-2.5 bg-mm-navy p-5.5 text-[0.8125rem] text-white/90 not-italic [&_a]:no-underline">
-                  <span>{contact.city}</span>
-                  <For each={contact.phones}>
-                    {(phone) => (
-                      <a href={`tel:${phone.value}`}>{phone.display}</a>
-                    )}
-                  </For>
-                  <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                  <ContactChannels class="flex gap-2 border-t border-white/15 pt-3" />
-                </address>
+                </div>
+                <ContactDetails class="gap-2.5 bg-mm-navy p-5.5 text-[0.8125rem] text-white/90 [&_a]:no-underline" />
               </div>
             </DrawerContent>
           </Drawer>

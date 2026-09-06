@@ -66,7 +66,6 @@ export const ariaLabels = {
   closeMenu: "Cerrar menú de navegación",
   mainNav: "Navegación principal",
   mobileNav: "Navegación móvil",
-  drawerTitle: "Navegación",
   contactChannels: "Canales de contacto",
   contactSection: "Información de contacto de Inmobiliaria M&M",
   servicesNav: "Servicios",

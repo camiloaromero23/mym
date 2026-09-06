@@ -14,6 +14,11 @@ import {
 import { contact, whatsappUrlFor } from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 
+/** Large green WhatsApp CTA style shared by the header drawer footer and
+    the page footer. */
+export const WHATSAPP_CTA_BLOCK_CLASS =
+  "inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-xs hover:bg-[#278e53] transition-[background-color,scale] duration-160 ease-out active:scale-97 [&>svg]:size-5 [&>svg]:fill-current";
+
 interface WhatsAppChooserDialogProps {
   /** Called with the dialog element on mount so the parent can manage
       focus and outside-click closing. */
