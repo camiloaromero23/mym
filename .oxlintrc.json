@@ -21,7 +21,8 @@
     "**/coverage/**",
     "**/build/**",
     "**/out/**",
-    "**/.turbo/**"
+    "**/.turbo/**",
+    "**/routeTree.gen.ts"
   ],
   "rules": {
     "import/namespace": "off",
