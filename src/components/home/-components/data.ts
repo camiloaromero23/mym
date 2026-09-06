@@ -27,11 +27,12 @@ export const contact = {
   ] satisfies HoursSpan[],
   email: "inmobiliariamym@yahoo.com",
   phones: [
-    { value: "+573173005145", display: "+57 317 300 5145" },
     { value: "+573173005146", display: "+57 317 300 5146" },
+    { value: "+573166491434", display: "+57 316 649 1434" },
   ] satisfies PhoneContact[],
   whatsapps: [
     { number: "573173005146", label: "WhatsApp Comercial" },
+    { number: "573166491434", label: "WhatsApp Contabilidad" },
   ] satisfies WhatsAppContact[],
 };
 
