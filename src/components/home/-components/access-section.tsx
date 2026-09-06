@@ -33,7 +33,7 @@ export function AccessSection() {
           {(card, index) => (
             <article
               style={{ "animation-delay": `${60 * (index() + 1)}ms` }}
-              class="relative flex min-h-0 animate-rise-in flex-col rounded-[0.875rem] border border-mm-line bg-white p-4.5 [transition:transform_180ms_ease-out,border-color_300ms_ease-out,box-shadow_300ms_ease-out] focus-within:-translate-y-1 focus-within:border-[rgb(30_58_95/30%)] focus-within:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] hover:-translate-y-1 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] motion-reduce:animate-none md:gap-3 md:p-5.5 lg:min-h-74 lg:rounded-[1.25rem] lg:p-8"
+              class="relative flex min-h-0 animate-rise-in flex-col rounded-[0.875rem] border border-mm-line bg-white p-4.5 [transition:transform_240ms_ease-out,border-color_400ms_ease-out,box-shadow_400ms_ease-out] focus-within:-translate-y-1 focus-within:border-[rgb(30_58_95/30%)] focus-within:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] hover:-translate-y-1 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] motion-reduce:animate-none md:gap-3 md:p-5.5 lg:min-h-74 lg:rounded-[1.25rem] lg:p-8"
             >
               <div class="flex flex-1 flex-col">
                 <div class="flex items-center gap-3 pr-12 md:gap-3.5 lg:gap-4.5">
