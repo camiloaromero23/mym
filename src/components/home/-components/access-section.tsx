@@ -40,7 +40,7 @@ export function AccessSection() {
             >
               <div class="flex flex-1 flex-col">
                 <div class="flex items-center gap-3 pr-12 md:gap-3.5 lg:gap-4.5">
-                  <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-[0.625rem] bg-mm-sky text-mm-navy md:size-12 md:rounded-xl lg:size-16 lg:rounded-2xl [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] md:[&>svg]:size-5.5 lg:[&>svg]:size-auto">
+                  <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-[0.625rem] bg-mm-sky text-mm-navy md:size-12 md:rounded-xl lg:size-16 lg:rounded-2xl [&>svg]:size-5.5 [&>svg]:fill-none [&>svg]:stroke-current [&>svg]:stroke-[1.8] [&>svg]:[stroke-linecap:round] [&>svg]:[stroke-linejoin:round] md:[&>svg]:size-6.5 lg:[&>svg]:size-9">
                     <AccessIcon name={card.icon} />
                   </span>
                   <h3 class="text-sm leading-[1.2] font-bold tracking-tight text-mm-navy-ink md:text-base lg:text-[1.375rem]">
