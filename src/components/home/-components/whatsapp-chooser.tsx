@@ -1,3 +1,6 @@
+/* oxlint-disable react/immutability -- Solid component: the plain lets below
+   hold non-reactive UI state (focus restore, exit-fallback timeout id)
+   mutated inside event handlers; this rule targets React and does not apply. */
 import { Link } from "@tanstack/solid-router";
 import {
   createSignal,
@@ -20,6 +23,10 @@ interface WhatsAppChooserDialogProps {
   class?: string;
   /** Called after a channel link is clicked (e.g. to close the chooser). */
   onNavigate?: () => void;
+  /** When true, plays the exit animation instead of the entrance. */
+  closing?: boolean;
+  /** Called when the exit animation finishes (only fires while closing). */
+  onExitAnimationEnd?: () => void;
 }
 
 /**
@@ -32,7 +39,10 @@ export function WhatsAppChooserDialog(props: WhatsAppChooserDialogProps) {
       ref={(el) => props.onPanelMount?.(el)}
       open
       aria-label="Elige un canal de WhatsApp"
-      class={`animate-popup-in overflow-hidden rounded-xl border border-mm-line bg-white p-0 shadow-[0_1.25rem_2.5rem_-1rem_rgb(20_48_79/35%)] motion-reduce:animate-none ${props.class ?? ""}`}
+      onAnimationEnd={() => {
+        if (props.closing) props.onExitAnimationEnd?.();
+      }}
+      class={`${props.closing ? "animate-popup-out" : "animate-popup-in"} overflow-hidden rounded-xl border border-mm-line bg-white p-0 shadow-[0_1.25rem_2.5rem_-1rem_rgb(20_48_79/35%)] motion-reduce:animate-none ${props.class ?? ""}`}
     >
       <p class="border-b border-mm-line px-4 py-2.5 text-[0.6875rem] font-extrabold tracking-[0.12em] text-mm-muted uppercase">
         Escríbenos por
@@ -78,15 +88,40 @@ interface WhatsAppCtaProps {
  */
 export function WhatsAppCta(props: WhatsAppCtaProps) {
   const [isOpen, setIsOpen] = createSignal(false);
+  const [isClosing, setIsClosing] = createSignal(false);
   const [trigger, setTrigger] = createSignal<HTMLButtonElement>();
   const [panel, setPanel] = createSignal<HTMLDialogElement>();
+  let restoreFocusOnExit = false;
+  let exitFallbackId: number | undefined;
+
+  const finishClose = () => {
+    window.clearTimeout(exitFallbackId);
+    exitFallbackId = undefined;
+    setIsClosing(false);
+    setIsOpen(false);
+    if (restoreFocusOnExit) trigger()?.focus();
+    restoreFocusOnExit = false;
+  };
 
   const close = (options?: { restoreFocus?: boolean }) => {
-    setIsOpen(false);
-    if (options?.restoreFocus) trigger()?.focus();
+    if (!isOpen() || isClosing()) return;
+    restoreFocusOnExit = options?.restoreFocus ?? false;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // motion-reduce:animate-none means no animationend — close directly.
+      finishClose();
+      return;
+    }
+    setIsClosing(true);
+    // Safety net: if `animationend` never fires (e.g. the tab is hidden),
+    // close anyway just after the 150ms animation window.
+    exitFallbackId = window.setTimeout(finishClose, 250);
   };
 
   const open = () => {
+    window.clearTimeout(exitFallbackId);
+    exitFallbackId = undefined;
+    restoreFocusOnExit = false;
+    setIsClosing(false);
     setIsOpen(true);
     // Wait for the panel to mount, then move focus to its first link.
     queueMicrotask(() => panel()?.querySelector("a")?.focus());
@@ -133,6 +168,8 @@ export function WhatsAppCta(props: WhatsAppCtaProps) {
             onPanelMount={setPanel}
             class={props.popupClass}
             onNavigate={() => close()}
+            closing={isClosing()}
+            onExitAnimationEnd={finishClose}
           />
         </Show>
         <button
@@ -141,7 +178,7 @@ export function WhatsAppCta(props: WhatsAppCtaProps) {
           class={`${props.class} cursor-pointer`}
           aria-label={props.triggerAriaLabel}
           aria-haspopup="dialog"
-          aria-expanded={isOpen()}
+          aria-expanded={isOpen() && !isClosing()}
           onClick={() => (isOpen() ? close() : open())}
         >
           {props.children}
