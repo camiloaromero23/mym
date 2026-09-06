@@ -25,6 +25,8 @@ import {
   whatsappUrl,
   whatsappUrlFor,
 } from "./data";
+import { CloseIcon } from "./icons/close-icon";
+import { HamburgerIcon } from "./icons/hamburger-icon";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 import { WHATSAPP_CTA_BLOCK_CLASS, WhatsAppCta } from "./whatsapp-chooser";
 
@@ -143,7 +145,7 @@ export function Header() {
               aria-label={ariaLabels.openMenu}
             >
               <span class="sr-only">{ariaLabels.openMenu}</span>
-              <span aria-hidden="true">☰</span>
+              <HamburgerIcon class="size-5" />
             </DrawerTrigger>
             <DrawerContent class="bg-mm-bone text-mm-ink">
               <div class="flex items-center justify-between border-b border-mm-line px-5.5 pb-3">
@@ -161,7 +163,7 @@ export function Header() {
                   class="inline-flex size-9 items-center justify-center rounded-lg border-0 bg-mm-navy text-xl text-white transition-[background-color,scale] duration-160 ease-out hover:bg-mm-navy-ink active:scale-97"
                   aria-label={ariaLabels.closeMenu}
                 >
-                  <span aria-hidden="true">×</span>
+                  <CloseIcon class="size-4" />
                 </DrawerClose>
               </div>
               <DrawerDescription class="sr-only">
