@@ -32,7 +32,7 @@ export function WhatsAppChooserDialog(props: WhatsAppChooserDialogProps) {
       ref={(el) => props.onPanelMount?.(el)}
       open
       aria-label="Elige un canal de WhatsApp"
-      class={`overflow-hidden rounded-xl border border-mm-line bg-white p-0 shadow-[0_1.25rem_2.5rem_-1rem_rgb(20_48_79/35%)] ${props.class ?? ""}`}
+      class={`origin-bottom-right animate-popup-in overflow-hidden rounded-xl border border-mm-line bg-white p-0 shadow-[0_1.25rem_2.5rem_-1rem_rgb(20_48_79/35%)] motion-reduce:animate-none ${props.class ?? ""}`}
     >
       <p class="border-b border-mm-line px-4 py-2.5 text-[0.6875rem] font-extrabold tracking-[0.12em] text-mm-muted uppercase">
         Escríbenos por
