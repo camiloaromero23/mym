@@ -9,7 +9,9 @@ const SITE_URL = import.meta.env.VITE_SITE_URL;
 const SITE_TITLE = "Inmobiliaria M&M";
 const SITE_DESCRIPTION =
   "Accede a los portales y servicios de Organización Inmobiliaria M&M LTDA en Bogotá.";
-const OG_IMAGE = `${SITE_URL}/og-image.svg`;
+// Raster (PNG) required: OG crawlers (WhatsApp, Facebook, X, LinkedIn) do not
+// render SVG og:image. Canonical 1200x630 card, pre-generated from og-image.svg.
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,6 +25,9 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:locale", content: "es_CO" },
       { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       {
         property: "og:image:alt",
         content: "Organización Inmobiliaria M&M LTDA",
@@ -32,6 +37,10 @@ export const Route = createFileRoute("/")({
       { name: "twitter:title", content: SITE_TITLE },
       { name: "twitter:description", content: SITE_DESCRIPTION },
       { name: "twitter:image", content: OG_IMAGE },
+      {
+        name: "twitter:image:alt",
+        content: "Organización Inmobiliaria M&M LTDA",
+      },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
