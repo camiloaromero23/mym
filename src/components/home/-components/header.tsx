@@ -29,7 +29,7 @@ import { WhatsAppIcon } from "./icons/whatsapp-icon";
 import { WhatsAppCta } from "./whatsapp-chooser";
 
 const DRAWER_CTA_CLASS =
-  "inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] [&>svg]:size-5 [&>svg]:fill-current";
+  "inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-xs hover:bg-[#278e53] [&>svg]:size-5 [&>svg]:fill-current";
 
 const NAVY_CTA_CLASS =
   "inline-flex items-center justify-center rounded-full bg-mm-navy px-4.5 py-2.5 text-xs font-bold text-white no-underline hover:bg-mm-navy-ink lg:px-[1.35rem] lg:py-3 lg:text-[0.8125rem]";
@@ -67,7 +67,7 @@ function WhatsAppDrawerCta(props: { class?: string }) {
         <dialog
           open
           aria-label="Elige un canal de WhatsApp"
-          class="static m-0 mt-3 w-auto overflow-hidden rounded-xl border border-mm-line bg-white p-0 shadow-[0_1.25rem_2.5rem_-1rem_rgb(20_48_79/35%)]"
+          class="static m-0 mt-3 w-auto overflow-hidden rounded-xl border border-mm-line bg-white p-0"
         >
           <p class="border-b border-mm-line px-4 py-2.5 text-[0.6875rem] font-extrabold tracking-[0.12em] text-mm-muted uppercase">
             Escríbenos por
@@ -106,8 +106,8 @@ export function Header() {
   });
 
   return (
-    <header class="relative z-30">
-      <div class="relative z-30 flex items-center justify-between border-b border-mm-line bg-mm-bone px-4.5 py-3.5 md:px-8 md:py-4 lg:min-h-25 lg:px-[clamp(1.5rem,4.4vw,3.5rem)]">
+    <header class="sticky top-0 z-30">
+      <div class="relative z-30 flex items-center justify-between bg-mm-bone/80 px-4.5 py-3.5 shadow-[0_1px_0.75rem_rgb(20_48_79/10%)] backdrop-blur-sm md:px-8 md:py-4 lg:min-h-25 lg:px-[clamp(1.5rem,4.4vw,3.5rem)]">
         <a
           class="block h-15 w-30 leading-none lg:h-auto lg:w-43"
           href="#inicio"

@@ -10,7 +10,7 @@ import { AccessIcon } from "./icons/access-icon";
 export function AccessSection() {
   return (
     <section
-      id="inmuebles"
+      id="servicios"
       class="flex flex-col items-center gap-3 bg-mm-bone px-4.5 pt-6 pb-6 md:gap-7 md:px-8 md:pt-12 md:pb-8 lg:gap-12 lg:px-[clamp(1.5rem,4.4vw,3.5rem)] lg:pt-[clamp(4rem,8vw,5.5rem)] lg:pb-16"
       aria-labelledby="access-title"
     >
@@ -28,10 +28,7 @@ export function AccessSection() {
           </strong>
         </h2>
       </div>
-      <div
-        id="servicios"
-        class="grid w-full max-w-270 scroll-mt-6 grid-cols-1 gap-3 md:grid-cols-2 md:gap-3.5 lg:gap-5"
-      >
+      <div class="grid w-full max-w-270 grid-cols-1 gap-3 md:grid-cols-2 md:gap-3.5 lg:gap-5">
         <For each={accessCards}>
           {(card) => (
             <article class="relative flex min-h-0 flex-col rounded-[0.875rem] border border-mm-line bg-white p-4.5 transition-[border-color,box-shadow,transform] duration-180 ease-out hover:-translate-y-1 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] md:gap-3 md:p-5.5 lg:min-h-74 lg:rounded-[1.25rem] lg:p-8">
