@@ -29,10 +29,10 @@ import { WhatsAppIcon } from "./icons/whatsapp-icon";
 import { WhatsAppCta } from "./whatsapp-chooser";
 
 const DRAWER_CTA_CLASS =
-  "inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-xs hover:bg-[#278e53] [&>svg]:size-5 [&>svg]:fill-current";
+  "inline-flex items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-xs hover:bg-[#278e53] transition-[background-color,scale] duration-160 ease-out active:scale-97 [&>svg]:size-5 [&>svg]:fill-current";
 
 const NAVY_CTA_CLASS =
-  "inline-flex items-center justify-center rounded-full bg-mm-navy px-4.5 py-2.5 text-xs font-bold text-white no-underline hover:bg-mm-navy-ink lg:px-[1.35rem] lg:py-3 lg:text-[0.8125rem]";
+  "inline-flex items-center justify-center rounded-full bg-mm-navy px-4.5 py-2.5 text-xs font-bold text-white no-underline hover:bg-mm-navy-ink transition-[background-color,scale] duration-160 ease-out active:scale-97 lg:px-[1.35rem] lg:py-3 lg:text-[0.8125rem]";
 
 /**
  * Drawer WhatsApp CTA. With a single channel it links straight to
@@ -80,7 +80,7 @@ function WhatsAppDrawerCta(props: { class?: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={whatsapp.label}
-                class="flex items-center gap-3 px-4 py-3 text-[0.8125rem] font-bold text-mm-navy-ink no-underline hover:bg-mm-sky-soft [&>svg]:size-5 [&>svg]:shrink-0 [&>svg]:fill-mm-green"
+                class="flex items-center gap-3 px-4 py-3 text-[0.8125rem] font-bold text-mm-navy-ink no-underline transition-[background-color] duration-160 ease-out hover:bg-mm-sky-soft [&>svg]:size-5 [&>svg]:shrink-0 [&>svg]:fill-mm-green"
               >
                 <WhatsAppIcon />
                 {whatsapp.label}
@@ -125,7 +125,7 @@ export function Header() {
           <For each={navigation}>
             {(item) => (
               <a
-                class="text-[0.8125rem] font-bold no-underline hover:text-mm-navy lg:text-sm"
+                class="text-[0.8125rem] font-bold no-underline transition-[color,scale] duration-160 ease-out hover:text-mm-navy active:scale-97 lg:text-sm"
                 href={item.href}
               >
                 {item.label}
@@ -142,7 +142,7 @@ export function Header() {
         <Show when={isMobileViewport()}>
           <Drawer side="right">
             <DrawerTrigger
-              class="inline-flex size-9 items-center justify-center rounded-lg border-0 bg-mm-navy text-base text-white md:hidden"
+              class="inline-flex size-9 items-center justify-center rounded-lg border-0 bg-mm-navy text-base text-white transition-[background-color,scale] duration-160 ease-out hover:bg-mm-navy-ink active:scale-97 md:hidden"
               aria-label={ariaLabels.openMenu}
             >
               <span class="sr-only">{ariaLabels.openMenu}</span>
@@ -154,7 +154,7 @@ export function Header() {
                   {ariaLabels.drawerTitle}
                 </DrawerLabel>
                 <DrawerClose
-                  class="inline-flex size-9 items-center justify-center rounded-lg border-0 bg-mm-navy text-xl text-white"
+                  class="inline-flex size-9 items-center justify-center rounded-lg border-0 bg-mm-navy text-xl text-white transition-[background-color,scale] duration-160 ease-out hover:bg-mm-navy-ink active:scale-97"
                   aria-label={ariaLabels.closeMenu}
                 >
                   <span aria-hidden="true">×</span>

@@ -50,7 +50,7 @@ export function WhatsAppChooserDialog(props: WhatsAppChooserDialogProps) {
       <For each={contact.whatsapps}>
         {(whatsapp) => (
           <Link
-            class="flex items-center gap-3 px-4 py-3 text-[0.8125rem] font-bold text-mm-navy-ink no-underline hover:bg-mm-sky-soft [&>svg]:size-5 [&>svg]:shrink-0 [&>svg]:fill-mm-green"
+            class="flex items-center gap-3 px-4 py-3 text-[0.8125rem] font-bold text-mm-navy-ink no-underline transition-[background-color] duration-160 ease-out hover:bg-mm-sky-soft [&>svg]:size-5 [&>svg]:shrink-0 [&>svg]:fill-mm-green"
             to={whatsappUrlFor(whatsapp.number)}
             target="_blank"
             rel="noopener noreferrer"

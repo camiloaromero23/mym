@@ -16,7 +16,7 @@ export function Hero() {
     >
       <div class="relative flex w-full max-w-236 flex-col items-center px-5.5 py-[1.75rem_2rem] md:px-8 md:py-[2.5rem_3rem] lg:px-6 lg:py-[clamp(3.75rem,8vw,5.5rem)]">
         <div class="flex flex-col items-center gap-4 md:gap-5 lg:gap-7">
-          <p class="inline-flex items-center gap-2 rounded-full border border-mm-line bg-white px-3 py-1.5 text-[0.625rem] font-bold tracking-[0.01em] text-mm-navy-ink md:gap-2.5 md:px-3.5 md:py-1.75 md:text-[0.6875rem] md:tracking-[0.04em] lg:px-4 lg:py-2 lg:text-xs">
+          <p class="inline-flex items-center gap-2 rounded-full border border-mm-line bg-white px-3 py-1.5 text-[0.625rem] font-bold tracking-[0.01em] text-mm-navy-ink md:gap-2.5 md:px-3.5 md:py-1.75 md:text-[0.6875rem] md:tracking-[0.04em] lg:px-4 lg:py-2">
             <span
               class="size-1.25 rounded-full bg-mm-green shadow-[0_0_0_3px_rgb(63_184_113/18%)] md:size-1.5 md:shadow-[0_0_0_4px_rgb(63_184_113/18%)]"
               aria-hidden="true"
@@ -41,7 +41,7 @@ export function Hero() {
         </div>
         <div class="flex flex-col items-stretch justify-center gap-3 pt-5 md:flex-row md:flex-wrap md:items-center md:pt-6 lg:pt-9">
           <WhatsAppCta
-            class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] hover:bg-[#278e53] md:w-auto [&>svg]:size-5 [&>svg]:fill-current"
+            class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] transition-[background-color,scale] duration-160 ease-out hover:bg-[#278e53] active:scale-97 md:w-auto [&>svg]:size-5 [&>svg]:fill-current"
             popupClass="static m-0 mt-3 w-full md:absolute md:inset-auto md:top-full md:right-0 md:w-60 origin-top-right"
           >
             <WhatsAppIcon />
