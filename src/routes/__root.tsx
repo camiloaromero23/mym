@@ -24,6 +24,7 @@ export const Route = createRootRouteWithContext()({
         href: import.meta.env.DEV ? "/favicon.dev.svg" : "/favicon.svg",
         type: "image/svg+xml",
       },
+      { rel: "manifest", href: "/manifest.json" },
     ],
   }),
   shellComponent: RootComponent,
