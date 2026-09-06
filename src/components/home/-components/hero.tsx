@@ -16,7 +16,7 @@ export function Hero() {
     >
       <div class="relative flex w-full max-w-236 flex-col items-center px-5.5 py-[1.75rem_2rem] md:px-8 md:py-[2.5rem_3rem] lg:px-6 lg:py-[clamp(3.75rem,8vw,5.5rem)]">
         <div class="flex flex-col items-center gap-4 md:gap-5 lg:gap-7">
-          <p class="inline-flex items-center gap-2 rounded-full border border-mm-line bg-white px-3 py-1.5 text-[0.625rem] font-bold tracking-[0.01em] text-mm-navy-ink md:gap-2.5 md:px-3.5 md:py-1.75 md:text-[0.6875rem] md:tracking-[0.04em] lg:px-4 lg:py-2">
+          <p class="inline-flex animate-rise-in items-center gap-2 rounded-full border border-mm-line bg-white px-3 py-1.5 text-[0.625rem] font-bold tracking-[0.01em] text-mm-navy-ink motion-reduce:animate-none md:gap-2.5 md:px-3.5 md:py-1.75 md:text-[0.6875rem] md:tracking-[0.04em] lg:px-4 lg:py-2 lg:text-xs">
             <span
               class="size-1.25 rounded-full bg-mm-green shadow-[0_0_0_3px_rgb(63_184_113/18%)] md:size-1.5 md:shadow-[0_0_0_4px_rgb(63_184_113/18%)]"
               aria-hidden="true"
@@ -26,20 +26,20 @@ export function Hero() {
           <div class="flex flex-col items-center gap-4">
             <h1
               id="home-title"
-              class="max-w-216 text-2xl leading-[1.1] font-bold tracking-tight text-mm-navy-ink md:text-[2.5rem] md:leading-[1.05] md:tracking-[-0.03em] lg:text-[clamp(2.5rem,6vw,3.75rem)] lg:tracking-[-0.045em]"
+              class="max-w-216 animate-rise-in text-2xl leading-[1.1] font-bold tracking-tight text-mm-navy-ink [animation-delay:60ms] motion-reduce:animate-none md:text-[2.5rem] md:leading-[1.05] md:tracking-[-0.03em] lg:text-[clamp(2.5rem,6vw,3.75rem)] lg:tracking-[-0.045em]"
             >
               Estamos renovando nuestra{" "}
               <span class="block font-mm-serif font-normal tracking-[-0.035em] text-mm-navy italic">
                 experiencia digital
               </span>
             </h1>
-            <p class="max-w-130 text-[0.8125rem] leading-normal text-mm-muted md:text-[0.9375rem] md:leading-[1.55] lg:max-w-152 lg:text-lg">
+            <p class="max-w-130 animate-rise-in text-[0.8125rem] leading-normal text-mm-muted [animation-delay:120ms] motion-reduce:animate-none md:text-[0.9375rem] md:leading-[1.55] lg:max-w-152 lg:text-lg">
               Mientras finalizamos la actualización, accede a nuestros portales
               y servicios. Llevamos más de 20 años acompañando a Bogotá.
             </p>
           </div>
         </div>
-        <div class="flex flex-col items-stretch justify-center gap-3 pt-5 md:flex-row md:flex-wrap md:items-center md:pt-6 lg:pt-9">
+        <div class="flex animate-rise-in flex-col items-stretch justify-center gap-3 pt-5 [animation-delay:180ms] motion-reduce:animate-none md:flex-row md:flex-wrap md:items-center md:pt-6 lg:pt-9">
           <WhatsAppCta
             class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-mm-green px-7 py-4 text-[0.9375rem] font-bold text-white no-underline shadow-[0_0.5rem_1.5rem_-0.625rem_rgb(63_184_113/45%)] transition-[background-color,scale] duration-160 ease-out hover:bg-[#278e53] active:scale-97 md:w-auto [&>svg]:size-5 [&>svg]:fill-current"
             popupClass="static m-0 mt-3 w-full md:absolute md:inset-auto md:top-full md:right-0 md:w-60 origin-top-right"
