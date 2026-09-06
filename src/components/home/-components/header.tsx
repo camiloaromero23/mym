@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/solid-router";
 import { createSignal, For, onCleanup, onMount, Show } from "solid-js";
 
-import { BrandLogo } from "@/components/brand-logo";
 import {
   Drawer,
   DrawerClose,
@@ -10,6 +9,7 @@ import {
   DrawerLabel,
   DrawerTrigger,
 } from "@/components/drawer";
+import { LogoMyM } from "@/components/icons/logo-mym";
 
 import { ContactChannels } from "./contact-channels";
 import { ariaLabels, contact, navigation, whatsappUrl } from "./data";
@@ -35,7 +35,10 @@ export function Header() {
           href="#inicio"
           aria-label={ariaLabels.brandLink}
         >
-          <BrandLogo class="block h-full w-full object-contain lg:h-auto" />
+          <LogoMyM
+            class="block h-full w-full object-contain text-mm-navy lg:h-auto"
+            aria-hidden="true"
+          />
         </a>
         <nav
           class="hidden items-center gap-6 md:flex lg:gap-[clamp(1.15rem,2.8vw,2.25rem)]"

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/solid-router";
 import { For } from "solid-js";
 
-import { BrandLogo } from "@/components/brand-logo";
+import { LogoMyM } from "@/components/icons/logo-mym";
 
 import { ContactChannels } from "./contact-channels";
 import { ariaLabels, contact, paymentUrl, propertiesUrl } from "./data";
@@ -22,7 +22,11 @@ export function Footer() {
       <div class="grid grid-cols-1 gap-0 pb-0 md:grid-cols-[1.4fr_repeat(2,1fr)] md:gap-6 md:border-b md:border-white/15 md:pb-5 lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-[clamp(2rem,5vw,3rem)] lg:pb-10">
         <div class="flex flex-col items-center gap-3 md:items-start md:gap-3 lg:gap-5">
           <div class="w-30 lg:w-auto lg:max-w-68 lg:rounded-[0.875rem] lg:bg-mm-bone lg:px-5 lg:py-4">
-            <BrandLogo class="block h-15 w-full object-contain brightness-0 invert lg:h-auto lg:brightness-100 lg:invert-0" />
+            <span class="sr-only">Organización Inmobiliaria M&M LTDA</span>
+            <LogoMyM
+              class="block h-15 w-full object-contain text-mm-navy brightness-0 invert lg:h-auto lg:brightness-100 lg:invert-0"
+              aria-hidden="true"
+            />
           </div>
           <p class="max-w-[18rem] font-mm-serif text-base leading-normal text-white/85 italic">
             Patrimonio que perdura, confianza que permanece.
