@@ -14,7 +14,10 @@ export function AccessSection() {
       class="flex flex-col items-center gap-3 bg-mm-bone px-4.5 pt-6 pb-6 md:gap-7 md:px-8 md:pt-12 md:pb-8 lg:gap-12 lg:px-[clamp(1.5rem,4.4vw,3.5rem)] lg:pt-[clamp(4rem,8vw,5.5rem)] lg:pb-16"
       aria-labelledby="access-title"
     >
-      <div class="flex w-full max-w-180 animate-rise-in flex-col items-center gap-1.5 text-center motion-reduce:animate-none md:gap-2.5 lg:gap-3">
+      <div
+        style={{ "animation-delay": "320ms" }}
+        class="flex w-full max-w-180 animate-rise-in flex-col items-center gap-1.5 text-center motion-reduce:animate-none md:gap-2.5 lg:gap-3"
+      >
         <p class="text-[0.625rem] font-extrabold tracking-[0.24em] text-mm-navy uppercase md:text-[0.6875rem] lg:text-xs">
           Accesos directos
         </p>
@@ -32,7 +35,7 @@ export function AccessSection() {
         <For each={accessCards}>
           {(card, index) => (
             <article
-              style={{ "animation-delay": `${60 * (index() + 1)}ms` }}
+              style={{ "animation-delay": `${320 + 40 * (index() + 1)}ms` }}
               class="relative flex min-h-0 animate-rise-in flex-col rounded-[0.875rem] border border-mm-line bg-white p-4.5 [transition:translate_350ms_ease-in-out,border-color_450ms_ease-out,box-shadow_450ms_ease-out] focus-within:-translate-y-1.5 focus-within:border-[rgb(30_58_95/30%)] focus-within:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] hover:-translate-y-1.5 hover:border-[rgb(30_58_95/30%)] hover:shadow-[0_1.25rem_2.25rem_-1.75rem_rgb(20_48_79/50%)] motion-reduce:animate-none md:gap-3 md:p-5.5 lg:min-h-74 lg:rounded-[1.25rem] lg:p-8"
             >
               <div class="flex flex-1 flex-col">
