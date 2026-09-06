@@ -17,7 +17,14 @@ export const Route = createRootRouteWithContext()({
     meta: [
       { name: "viewport", content: "width=device-width, initial-scale=1" },
     ],
-    links: [{ rel: "stylesheet", href: styleCss }],
+    links: [
+      { rel: "stylesheet", href: styleCss },
+      {
+        rel: "icon",
+        href: import.meta.env.DEV ? "/favicon.dev.svg" : "/favicon.svg",
+        type: "image/svg+xml",
+      },
+    ],
   }),
   shellComponent: RootComponent,
 });
