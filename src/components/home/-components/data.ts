@@ -77,9 +77,7 @@ export const ariaLabels = {
 
 export const navigation = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Inmuebles", href: "#inmuebles" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Contacto", href: "#contacto" },
 ];
 
 const ownersPortalUrl: string =

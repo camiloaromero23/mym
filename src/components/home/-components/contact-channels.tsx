@@ -1,10 +1,8 @@
-import { Link } from "@tanstack/solid-router";
 import { For, type JSX } from "solid-js";
 
 import { Button } from "@/components/button";
 
-import { ariaLabels, contact, socialLinks, whatsappUrlFor } from "./data";
-import { WhatsAppIcon } from "./icons/whatsapp-icon";
+import { ariaLabels, socialLinks } from "./data";
 
 interface ContactChannelsProps {
   /** Layout classes for the nav container (gap, borders, visibility). */
@@ -14,8 +12,9 @@ interface ContactChannelsProps {
 }
 
 /**
- * Social + WhatsApp channel row shared by the footer (mobile and desktop
- * variants) and the header drawer contact nav.
+ * Social channel row shared by the footer (mobile and desktop variants)
+ * and the header drawer contact nav. WhatsApp channels live in the
+ * dedicated contact section and the floating button instead.
  */
 export function ContactChannels(props: ContactChannelsProps) {
   return (
@@ -33,19 +32,6 @@ export function ContactChannels(props: ContactChannelsProps) {
           >
             {social.glyph}
           </Button>
-        )}
-      </For>
-      <For each={contact.whatsapps}>
-        {(whatsapp) => (
-          <Link
-            class="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 no-underline hover:bg-white/20 [&>svg]:fill-current"
-            to={whatsappUrlFor(whatsapp.number)}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={whatsapp.label}
-          >
-            <WhatsAppIcon />
-          </Link>
         )}
       </For>
       <For each={socialLinks.slice(2)}>

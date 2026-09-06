@@ -1,5 +1,6 @@
 import { AccessSection } from "./-components/access-section";
 import { BenefitsSection } from "./-components/benefits-section";
+import { FloatingWhatsApp } from "./-components/floating-whatsapp";
 import { Footer } from "./-components/footer";
 import { Header } from "./-components/header";
 import { Hero } from "./-components/hero";
@@ -23,6 +24,7 @@ export function HomePage() {
         <BenefitsSection />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }
