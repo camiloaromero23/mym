@@ -114,7 +114,7 @@ export function Header() {
           aria-label={ariaLabels.brandLink}
         >
           <LogoMyM
-            class="block h-full w-full object-contain text-mm-navy lg:h-auto"
+            class="block h-full w-full object-contain lg:h-auto"
             aria-hidden="true"
           />
         </a>

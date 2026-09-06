@@ -1,11 +1,30 @@
-import type { JSX } from "solid-js";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "cn";
+import { splitProps, type JSX } from "solid-js";
 
-export function LogoMyM(props: JSX.SvgSVGAttributes<SVGSVGElement>) {
+export const logoVariants = cva("[--logo-window:white]", {
+  variants: {
+    variant: {
+      navy: "text-mm-navy [--logo-window:white]",
+      bone: "text-mm-bone [--logo-window:var(--color-mm-navy)]",
+    },
+  },
+  defaultVariants: {
+    variant: "navy",
+  },
+});
+
+export type LogoMyMProps = JSX.SvgSVGAttributes<SVGSVGElement> &
+  VariantProps<typeof logoVariants>;
+
+export function LogoMyM(props: LogoMyMProps) {
+  const [local, rest] = splitProps(props, ["class", "variant"]);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1047.48 297.66"
-      {...props}
+      class={cn(logoVariants({ variant: local.variant }), local.class)}
+      {...rest}
     >
       <g
         id="Layer_1"
@@ -217,28 +236,28 @@ export function LogoMyM(props: JSX.SvgSVGAttributes<SVGSVGElement>) {
           d="M184.73,198.09l6.88,8.47,6.91-8.47h6.12v22.56h-6.75v-13.07l-6.09,7.58h-.53l-6.12-7.58v13.07h-6.55v-22.56h6.12Z"
         />
         <rect
-          fill="white"
+          class="fill-(--logo-window)"
           x="134.58"
           y="72.58"
           width="7.93"
           height="7.93"
         />
         <rect
-          fill="white"
+          class="fill-(--logo-window)"
           x="146.26"
           y="72.58"
           width="7.93"
           height="7.93"
         />
         <rect
-          fill="white"
+          class="fill-(--logo-window)"
           x="134.58"
           y="82.38"
           width="7.93"
           height="7.93"
         />
         <rect
-          fill="white"
+          class="fill-(--logo-window)"
           x="146.26"
           y="82.38"
           width="7.93"

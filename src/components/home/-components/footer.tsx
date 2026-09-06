@@ -24,7 +24,8 @@ export function Footer() {
           <div class="w-30 lg:w-auto lg:max-w-68 lg:px-5 lg:py-4">
             <span class="sr-only">Organización Inmobiliaria M&M LTDA</span>
             <LogoMyM
-              class="block h-15 w-full object-contain text-mm-bone lg:h-auto"
+              class="block h-15 w-full object-contain lg:h-auto"
+              variant="bone"
               aria-hidden="true"
             />
           </div>
