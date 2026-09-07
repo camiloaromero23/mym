@@ -82,6 +82,8 @@ interface WhatsAppCtaProps {
   triggerAriaLabel?: string;
   /** Positioning + width classes for the chooser popup. */
   popupClass?: string;
+  /** Notified whenever the chooser toggles (true on open, false on close). */
+  onOpenChange?: (open: boolean) => void;
 }
 
 /**
@@ -104,6 +106,7 @@ export function WhatsAppCta(props: WhatsAppCtaProps) {
     exitFallbackId = undefined;
     setIsClosing(false);
     setIsOpen(false);
+    props.onOpenChange?.(false);
     if (restoreFocusOnExit) trigger()?.focus();
     restoreFocusOnExit = false;
   };
@@ -128,6 +131,7 @@ export function WhatsAppCta(props: WhatsAppCtaProps) {
     restoreFocusOnExit = false;
     setIsClosing(false);
     setIsOpen(true);
+    props.onOpenChange?.(true);
     // Wait for the panel to mount, then move focus to its first link.
     queueMicrotask(() => panel()?.querySelector("a")?.focus());
   };

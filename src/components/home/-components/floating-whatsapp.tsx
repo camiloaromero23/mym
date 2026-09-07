@@ -1,3 +1,5 @@
+import { createSignal } from "solid-js";
+
 import { contact } from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 import { WhatsAppCta } from "./whatsapp-chooser";
@@ -12,12 +14,18 @@ const CTA_CLASS =
  * exclusively from `contact.whatsapps` in data.ts.
  */
 export function FloatingWhatsApp() {
+  const [chooserOpen, setChooserOpen] = createSignal(false);
+
   return (
     <div class="fixed right-4.5 bottom-4.5 z-40 md:right-6 md:bottom-6">
       {/* The bounce wrapper keeps the ping ring and the CTA moving as one
           unit so the ring stays aligned with the button. `isolate` keeps
-          the ring's -z-10 inside this wrapper's stacking context. */}
-      <div class="relative isolate inline-flex animate-float-bounce motion-reduce:animate-none">
+          the ring's -z-10 inside this wrapper's stacking context. While
+          the chooser is open the bounce pauses so the anchored popup
+          stays still and usable. */}
+      <div
+        class={`relative isolate inline-flex ${chooserOpen() ? "" : "animate-float-bounce motion-reduce:animate-none"}`}
+      >
         <span
           aria-hidden="true"
           class="pointer-events-none absolute inset-1.5 -z-10 animate-ripple rounded-full bg-mm-green motion-reduce:animate-none"
@@ -27,6 +35,7 @@ export function FloatingWhatsApp() {
           linkAriaLabel={contact.whatsapps[0].label}
           triggerAriaLabel="Contactar por WhatsApp"
           popupClass="absolute inset-auto right-0 bottom-full m-0 mb-3 w-60 origin-bottom-right"
+          onOpenChange={setChooserOpen}
         >
           <WhatsAppIcon />
         </WhatsAppCta>
