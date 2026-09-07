@@ -205,7 +205,7 @@ export function Header() {
                     <WhatsAppDrawerCta class={WHATSAPP_CTA_BLOCK_CLASS} />
                   </Show>
                 </div>
-                <ContactDetails class="gap-2.5 bg-mm-navy p-5.5 text-[0.8125rem] text-white/90 [&_a]:no-underline" />
+                <ContactDetails class="flex flex-col items-center gap-2.5 bg-mm-navy p-5.5 text-center text-[0.8125rem] text-white/90 [&_a]:no-underline" />
               </div>
             </DrawerContent>
           </Drawer>

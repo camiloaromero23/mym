@@ -40,7 +40,7 @@ export function Footer() {
               <WhatsAppIcon />
               Contáctanos por WhatsApp
             </WhatsAppCta>
-            <ContactDetails class="border-t border-white/15 pt-5 text-left text-[0.8125rem] text-white/90" />
+            <ContactDetails class="flex flex-col items-center gap-2.5 border-t border-white/15 pt-5 text-center text-[0.8125rem] text-white/90" />
           </div>
         </div>
         <div class="hidden flex-col gap-5 md:flex">
