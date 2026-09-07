@@ -83,7 +83,7 @@ export const navigation = [
 const ownersPortalUrl: string =
   "https://simidocs.siminmobiliarias.com/base/simired/simidocsapi1.0/index.php?inmo=47&tipo=1";
 
-export const paymentUrl: string =
+const paymentUrl: string =
   "https://customers.ecollect.co/html/10515/ecollect10515.html";
 
 const tenantsPortalUrl: string =

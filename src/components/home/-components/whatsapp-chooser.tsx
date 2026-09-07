@@ -38,7 +38,7 @@ interface WhatsAppChooserDialogProps {
  * Non-modal chooser dialog listing every WhatsApp channel from
  * `contact.whatsapps` as wa.me links.
  */
-export function WhatsAppChooserDialog(props: WhatsAppChooserDialogProps) {
+function WhatsAppChooserDialog(props: WhatsAppChooserDialogProps) {
   return (
     <dialog
       ref={(el) => props.onPanelMount?.(el)}
@@ -111,11 +111,12 @@ export function WhatsAppCta(props: WhatsAppCtaProps) {
     restoreFocusOnExit = false;
   };
 
-  const close = (options?: { restoreFocus?: boolean }) => {
+  /** Closes the chooser; Escape passes `true` so focus returns to the trigger. */
+  const close = (restoreFocus = false) => {
     if (!isOpen() || isClosing()) return;
-    restoreFocusOnExit = options?.restoreFocus ?? false;
+    restoreFocusOnExit = restoreFocus;
+    // motion-reduce:animate-none means no animationend — close directly.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      // motion-reduce:animate-none means no animationend — close directly.
       finishClose();
       return;
     }
@@ -145,7 +146,7 @@ export function WhatsAppCta(props: WhatsAppCtaProps) {
       }
     };
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") close({ restoreFocus: true });
+      if (event.key === "Escape") close(true);
     };
 
     document.addEventListener("pointerdown", handlePointerDown);

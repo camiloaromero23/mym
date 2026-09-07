@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "cn";
 import { splitProps, type JSX } from "solid-js";
 
-export const logoVariants = cva("[--logo-window:white]", {
+const logoVariants = cva("[--logo-window:white]", {
   variants: {
     variant: {
       navy: "text-mm-navy [--logo-window:white]",

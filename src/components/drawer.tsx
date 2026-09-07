@@ -5,7 +5,6 @@ import { splitProps, type JSX } from "solid-js";
 export const Drawer = DrawerPrimitive;
 export const DrawerTrigger = DrawerPrimitive.Trigger;
 export const DrawerClose = DrawerPrimitive.Close;
-export const DrawerLabel = DrawerPrimitive.Label;
 export const DrawerDescription = DrawerPrimitive.Description;
 
 type DrawerContentProps = ContentProps & JSX.HTMLAttributes<HTMLDivElement>;
