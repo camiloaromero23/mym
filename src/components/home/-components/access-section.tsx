@@ -61,6 +61,14 @@ export function AccessSection() {
                 rel="noopener noreferrer"
               >
                 {card.action}
+                {"logo" in card && (
+                  <img
+                    src={card.logo.src}
+                    alt={card.logo.alt}
+                    loading="lazy"
+                    class="h-4 w-auto lg:h-4.5"
+                  />
+                )}
               </Link>
             </article>
           )}
