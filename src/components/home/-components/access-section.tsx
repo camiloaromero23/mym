@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/button";
 
 import { accessCards } from "./data";
 import { AccessIcon } from "./icons/access-icon";
+import { PseLogo } from "./icons/pse-logo";
 
 export function AccessSection() {
   return (
@@ -62,10 +63,8 @@ export function AccessSection() {
               >
                 {card.action}
                 {"logo" in card && (
-                  <img
-                    src={card.logo.src}
-                    alt={card.logo.alt}
-                    loading="lazy"
+                  <PseLogo
+                    mono
                     class="h-4 w-auto lg:h-4.5"
                   />
                 )}

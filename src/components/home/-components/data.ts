@@ -12,13 +12,6 @@ type WhatsAppContact = {
   label: `WhatsApp ${string}`;
 };
 
-type AccessCardLogo = {
-  /** Path to a small brand logo rendered next to the card action text. */
-  src: string;
-  /** Alt text for the logo image. */
-  alt: string;
-};
-
 type HoursSpan = {
   /** Days covered, e.g. "Lun-Vie". */
   days: string;
@@ -114,10 +107,8 @@ export const accessCards = [
     action: "Pagar canon",
     icon: "card",
     href: paymentUrl,
-    logo: {
-      src: "/logo-pse-white.webp",
-      alt: "",
-    } satisfies AccessCardLogo,
+    /** Brand mark rendered inside the action button; see PseLogo. */
+    logo: "pse",
   },
   {
     title: "Portal Arrendatarios",
