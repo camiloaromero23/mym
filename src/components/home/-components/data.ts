@@ -92,6 +92,25 @@ const tenantsPortalUrl: string =
 export const propertiesUrl: string =
   "https://simi-api.com/iframeNvo/index.php?inmo=47&typebox=1&numbox=3&viewtitlesearch=1&titlesearch=Buscador%20de%20Inmuebles&colortitlesearch=FFFFFF&bgtitlesearch=0076BD&secondct=0076BD&primaryc=0076BD&primaryct=ffff&token=5VA63X5Mh974QeioekM6C9HsqiHhX2AlFMbs6RIe";
 
+type FooterLink = {
+  label: string;
+  href: string;
+  /** External links open in a new tab with rel="noopener noreferrer". */
+  external?: boolean;
+};
+
+/** Footer "Servicios" column links. Destinations reuse the access-card URLs. */
+export const footerServices = [
+  { label: "Propietarios", href: ownersPortalUrl, external: true },
+  { label: "Arrendatarios", href: tenantsPortalUrl, external: true },
+  { label: "Pagar canon", href: paymentUrl, external: true },
+] as FooterLink[];
+
+/** Footer "Compañía" column links. Destinations reuse the access-card URLs. */
+export const footerCompany = [
+  { label: "Inmuebles", href: propertiesUrl, external: true },
+] as FooterLink[];
+
 export const accessCards = [
   {
     title: "Portal Propietarios",

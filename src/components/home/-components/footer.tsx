@@ -5,7 +5,7 @@ import { LogoMyM } from "@/components/icons/logo-mym";
 
 import { ContactChannels } from "./contact-channels";
 import { ContactDetails } from "./contact-details";
-import { ariaLabels, contact, paymentUrl, propertiesUrl } from "./data";
+import { ariaLabels, contact, footerCompany, footerServices } from "./data";
 import { WhatsAppIcon } from "./icons/whatsapp-icon";
 import { WHATSAPP_CTA_BLOCK_CLASS, WhatsAppCta } from "./whatsapp-chooser";
 
@@ -60,36 +60,46 @@ export function Footer() {
           aria-label={ariaLabels.servicesNav}
         >
           <h3 class="pb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">
-            Servicios
+            {ariaLabels.servicesNav}
           </h3>
-          <a href="#contacto">Arriendo</a>
-          <a href="#contacto">Venta</a>
-          <a href="#contacto">Administración</a>
-          <Link
-            to={paymentUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Pagar canon
-          </Link>
+          <For each={footerServices}>
+            {(item) =>
+              item.external ? (
+                <Link
+                  to={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a href={item.href}>{item.label}</a>
+              )
+            }
+          </For>
         </nav>
         <nav
           class="hidden flex-col gap-3 text-sm text-white/85 lg:flex [&_a]:no-underline [&_a:hover]:underline-offset-4"
           aria-label={ariaLabels.companyNav}
         >
           <h3 class="pb-2 text-[0.6875rem] tracking-[0.24em] text-mm-gold uppercase">
-            Compañía
+            {ariaLabels.companyNav}
           </h3>
-          <a href="#contacto">Nosotros</a>
-          <Link
-            to={propertiesUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Inmuebles
-          </Link>
-          <a href="#contacto">Contacto</a>
-          <a href="#contacto">Aviso legal</a>
+          <For each={footerCompany}>
+            {(item) =>
+              item.external ? (
+                <Link
+                  to={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a href={item.href}>{item.label}</a>
+              )
+            }
+          </For>
         </nav>
       </div>
       <div class="hidden items-start justify-between gap-4 pt-6 text-xs text-white/60 md:flex md:flex-row md:items-center">
