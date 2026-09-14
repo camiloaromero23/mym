@@ -6,8 +6,6 @@ import { LogoMyM } from "@/components/icons/logo-mym";
 import { ContactChannels } from "./contact-channels";
 import { ContactDetails } from "./contact-details";
 import { ariaLabels, contact, footerCompany, footerServices } from "./data";
-import { WhatsAppIcon } from "./icons/whatsapp-icon";
-import { WHATSAPP_CTA_BLOCK_CLASS, WhatsAppCta } from "./whatsapp-chooser";
 
 export function Footer() {
   return (
@@ -36,10 +34,6 @@ export function Footer() {
             Patrimonio que perdura, confianza que permanece.
           </p>
           <div class="flex w-full flex-col items-stretch gap-4 md:hidden">
-            <WhatsAppCta class={WHATSAPP_CTA_BLOCK_CLASS}>
-              <WhatsAppIcon />
-              Contáctanos por WhatsApp
-            </WhatsAppCta>
             <ContactDetails class="flex flex-col items-center gap-2.5 border-t border-white/15 pt-5 text-center text-[0.8125rem] text-white/90" />
           </div>
         </div>
