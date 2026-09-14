@@ -35,7 +35,7 @@ export function Hero() {
             </h1>
             <p class="max-w-130 animate-rise-in text-[0.8125rem] leading-normal text-mm-muted [animation-delay:120ms] motion-reduce:animate-none md:text-[0.9375rem] md:leading-[1.55] lg:max-w-152 lg:text-lg">
               Mientras finalizamos la actualización, accede a nuestros portales
-              y servicios. Llevamos más de 20 años acompañando a Bogotá.
+              y servicios. Llevamos más de 30 años en el mercado.
             </p>
           </div>
         </div>

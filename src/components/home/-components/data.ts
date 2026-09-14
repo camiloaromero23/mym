@@ -25,7 +25,7 @@ export const contact = {
     { days: "Lun-Vie", time: "8:00-18:00" },
     { days: "Sáb", time: "9:00-13:00" },
   ] satisfies HoursSpan[],
-  email: "inmobiliariamym@yahoo.com",
+  email: "myminmobiliaria@yahoo.com",
   phones: [
     { value: "+573173005146", display: "+57 317 300 5146" },
     { value: "+573166491434", display: "+57 316 649 1434" },
@@ -149,7 +149,7 @@ export const accessCards = [
 
 export const benefits = [
   {
-    value: "20+",
+    value: "30+",
     title: "Años de experiencia",
     description: "Acompañando familias y empresas en Bogotá.",
   },
@@ -157,11 +157,6 @@ export const benefits = [
     value: "100%",
     title: "Gestión transparente",
     description: "Reportes mensuales claros y trazables.",
-  },
-  {
-    value: "1:1",
-    title: "Atención personalizada",
-    description: "Un asesor dedicado para cada cliente.",
   },
 ] as const;
 
