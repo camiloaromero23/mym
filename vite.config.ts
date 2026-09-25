@@ -16,6 +16,10 @@ export default defineConfig({
         enabled: true,
         filter: ({ path }) => path === "/",
       },
+      sitemap: {
+        enabled: true,
+        host: "https://www.inmobiliariamym.com.co",
+      },
     }),
     solidPlugin({ ssr: true }),
   ],
